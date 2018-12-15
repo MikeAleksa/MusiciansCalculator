@@ -12,6 +12,9 @@
 		279E298221C48981002B9C52 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 279E298021C48981002B9C52 /* Main.storyboard */; };
 		279E298421C48983002B9C52 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 279E298321C48983002B9C52 /* Assets.xcassets */; };
 		279E298721C48983002B9C52 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 279E298521C48983002B9C52 /* LaunchScreen.storyboard */; };
+		279E299021C4C587002B9C52 /* MusiciansCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279E298F21C4C587002B9C52 /* MusiciansCalculator.swift */; };
+		279E299221C4C855002B9C52 /* SampleRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279E299121C4C855002B9C52 /* SampleRate.swift */; };
+		279E299621C4CBF0002B9C52 /* Division.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279E299521C4CBF0002B9C52 /* Division.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,9 @@
 		279E298321C48983002B9C52 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		279E298621C48983002B9C52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		279E298821C48983002B9C52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		279E298F21C4C587002B9C52 /* MusiciansCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusiciansCalculator.swift; sourceTree = "<group>"; };
+		279E299121C4C855002B9C52 /* SampleRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleRate.swift; sourceTree = "<group>"; };
+		279E299521C4CBF0002B9C52 /* Division.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Division.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +60,25 @@
 		279E297B21C48981002B9C52 /* Musicians Calculator */ = {
 			isa = PBXGroup;
 			children = (
-				279E297C21C48981002B9C52 /* AppDelegate.swift */,
+				279E299121C4C855002B9C52 /* SampleRate.swift */,
+				279E298E21C489C7002B9C52 /* Supporting Files */,
 				279E297E21C48981002B9C52 /* ViewController.swift */,
+				279E299521C4CBF0002B9C52 /* Division.swift */,
 				279E298021C48981002B9C52 /* Main.storyboard */,
-				279E298321C48983002B9C52 /* Assets.xcassets */,
-				279E298521C48983002B9C52 /* LaunchScreen.storyboard */,
 				279E298821C48983002B9C52 /* Info.plist */,
+				279E298F21C4C587002B9C52 /* MusiciansCalculator.swift */,
 			);
 			path = "Musicians Calculator";
+			sourceTree = "<group>";
+		};
+		279E298E21C489C7002B9C52 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				279E297C21C48981002B9C52 /* AppDelegate.swift */,
+				279E298321C48983002B9C52 /* Assets.xcassets */,
+				279E298521C48983002B9C52 /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,6 +153,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				279E297F21C48981002B9C52 /* ViewController.swift in Sources */,
+				279E299621C4CBF0002B9C52 /* Division.swift in Sources */,
+				279E299221C4C855002B9C52 /* SampleRate.swift in Sources */,
+				279E299021C4C587002B9C52 /* MusiciansCalculator.swift in Sources */,
 				279E297D21C48981002B9C52 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
