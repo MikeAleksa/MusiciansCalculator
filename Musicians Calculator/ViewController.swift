@@ -18,15 +18,13 @@ class ViewController: UIViewController {
     
     @IBAction func editBPM(_ sender: UITextField) {
         let doubleBPM = Double(sender.text!) ?? 0
+        calc.setBPM(withbpm: doubleBPM)
         updateDuration(withbpm: doubleBPM, on: durationDisplay)
     }
-    
-    @IBAction func touchButton() {
-        calc.setBPM(withbpm: 125)
-        updateDuration(withbpm: calc.getBPM(), on: durationDisplay)    }
+
     
     func updateDuration(withbpm bpm: Double, on label: UILabel) {
-        durationDisplay.numberOfLines = 8
+        durationDisplay.numberOfLines = 0
         var newLabel : String = ""
         for division in calc.divisions {
             newLabel += division.getName() + " note:\t" + String(format: "%.2f", division.getMilliseconds()) + " ms\n"

@@ -8,19 +8,18 @@
 
 import Foundation
 
-class MusiciansCalculator {
+class MusiciansCalculator : SampleRate {
     
     private var bpm : Double {
         didSet {
             self.updateDivisions()
         }
     }
-    private var sampleRate = SampleRate()
-    
-    init() {
+        
+    override init() {
         bpm = 120
         for name in ["1/64", "1/32", "1/16", "1/8", "1/4", "1/2", "1/1", "2/1"] {
-            let division = Division(withName: name, withbpm: bpm)
+            let division = Division(withName: name, withbpm: bpm, withsr: MusiciansCalculator.getSR())
             divisions.append(division)
         }
     }
@@ -31,7 +30,7 @@ class MusiciansCalculator {
     
     private func updateDivisions() {
         for division in divisions {
-            division.updateTimes(withbpm: bpm)
+            division.updateTimes(withbpm: bpm, withsr: MusiciansCalculator.getSR())
         }
     }
     
@@ -49,3 +48,4 @@ class MusiciansCalculator {
         return self.bpm
     }
 }
+

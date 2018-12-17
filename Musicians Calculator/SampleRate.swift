@@ -8,27 +8,32 @@
 
 import Foundation
 
-struct SampleRate {
+class SampleRate {
     
-    private var sampleRate : Double = 44100
+    static private var sampleRate : Double = 44100
     
     /* * * * * * * * * * * * * * * *
      *           PUBLIC            *
      * * * * * * * * * * * * * * * */
     
-    public mutating func set44100() {
-        self.sampleRate = 44100
+    static public func set44100() {
+        sampleRate = 44100
     }
     
-    public mutating func set48000() {
-        self.sampleRate = 48000
+    static public func set48000() {
+        sampleRate = 48000
     }
     
-    public mutating func set88200() {
-        self.sampleRate = 88200
+    static public func set88200() {
+        sampleRate = 88200
     }
     
-    public mutating func set96000() {
-        self.sampleRate = 96000
+    static public func set96000() {
+        sampleRate = 96000
+    }
+    
+    static public func getSR() -> Double {
+        return sampleRate
     }
 }
+

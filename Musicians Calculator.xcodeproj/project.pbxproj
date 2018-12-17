@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		279DC5C321C7A29A00916070 /* Musicians_CalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279DC5C221C7A29A00916070 /* Musicians_CalculatorTests.swift */; };
+		279DC5CD21C7A5AB00916070 /* SampleRateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279DC5CC21C7A5AB00916070 /* SampleRateTests.swift */; };
+		279DC5CE21C7A6E600916070 /* SampleRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279E299121C4C855002B9C52 /* SampleRate.swift */; };
+		279DC5CF21C7A6F600916070 /* Division.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279E299521C4CBF0002B9C52 /* Division.swift */; };
+		279DC5D021C7A6FA00916070 /* MusiciansCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279E298F21C4C587002B9C52 /* MusiciansCalculator.swift */; };
+		279DC5D221C7A91F00916070 /* DivisionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279DC5D121C7A91F00916070 /* DivisionTests.swift */; };
 		279E297D21C48981002B9C52 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279E297C21C48981002B9C52 /* AppDelegate.swift */; };
 		279E297F21C48981002B9C52 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279E297E21C48981002B9C52 /* ViewController.swift */; };
 		279E298221C48981002B9C52 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 279E298021C48981002B9C52 /* Main.storyboard */; };
@@ -17,7 +23,22 @@
 		279E299621C4CBF0002B9C52 /* Division.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279E299521C4CBF0002B9C52 /* Division.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		279DC5C521C7A29A00916070 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 279E297121C48981002B9C52 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 279E297821C48981002B9C52;
+			remoteInfo = "Musicians Calculator";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		279DC5C021C7A29A00916070 /* Musicians CalculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Musicians CalculatorTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		279DC5C221C7A29A00916070 /* Musicians_CalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Musicians_CalculatorTests.swift; sourceTree = "<group>"; };
+		279DC5C421C7A29A00916070 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		279DC5CC21C7A5AB00916070 /* SampleRateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleRateTests.swift; sourceTree = "<group>"; };
+		279DC5D121C7A91F00916070 /* DivisionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DivisionTests.swift; sourceTree = "<group>"; };
 		279E297921C48981002B9C52 /* Musicians Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Musicians Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		279E297C21C48981002B9C52 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		279E297E21C48981002B9C52 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -31,6 +52,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		279DC5BD21C7A29A00916070 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		279E297621C48981002B9C52 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -41,10 +69,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		279DC5C121C7A29A00916070 /* Musicians CalculatorTests */ = {
+			isa = PBXGroup;
+			children = (
+				279DC5D121C7A91F00916070 /* DivisionTests.swift */,
+				279DC5CC21C7A5AB00916070 /* SampleRateTests.swift */,
+				279DC5C221C7A29A00916070 /* Musicians_CalculatorTests.swift */,
+				279DC5C421C7A29A00916070 /* Info.plist */,
+			);
+			path = "Musicians CalculatorTests";
+			sourceTree = "<group>";
+		};
 		279E297021C48981002B9C52 = {
 			isa = PBXGroup;
 			children = (
 				279E297B21C48981002B9C52 /* Musicians Calculator */,
+				279DC5C121C7A29A00916070 /* Musicians CalculatorTests */,
 				279E297A21C48981002B9C52 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -53,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				279E297921C48981002B9C52 /* Musicians Calculator.app */,
+				279DC5C021C7A29A00916070 /* Musicians CalculatorTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -84,6 +125,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		279DC5BF21C7A29A00916070 /* Musicians CalculatorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 279DC5C921C7A29A00916070 /* Build configuration list for PBXNativeTarget "Musicians CalculatorTests" */;
+			buildPhases = (
+				279DC5BC21C7A29A00916070 /* Sources */,
+				279DC5BD21C7A29A00916070 /* Frameworks */,
+				279DC5BE21C7A29A00916070 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				279DC5C621C7A29A00916070 /* PBXTargetDependency */,
+			);
+			name = "Musicians CalculatorTests";
+			productName = "Musicians CalculatorTests";
+			productReference = 279DC5C021C7A29A00916070 /* Musicians CalculatorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		279E297821C48981002B9C52 /* Musicians Calculator */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 279E298B21C48983002B9C52 /* Build configuration list for PBXNativeTarget "Musicians Calculator" */;
@@ -107,12 +166,17 @@
 		279E297121C48981002B9C52 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0940;
+				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "Michael Aleksa";
 				TargetAttributes = {
+					279DC5BF21C7A29A00916070 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 279E297821C48981002B9C52;
+					};
 					279E297821C48981002B9C52 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1010;
 					};
 				};
 			};
@@ -130,11 +194,19 @@
 			projectRoot = "";
 			targets = (
 				279E297821C48981002B9C52 /* Musicians Calculator */,
+				279DC5BF21C7A29A00916070 /* Musicians CalculatorTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		279DC5BE21C7A29A00916070 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		279E297721C48981002B9C52 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -148,6 +220,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		279DC5BC21C7A29A00916070 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				279DC5D221C7A91F00916070 /* DivisionTests.swift in Sources */,
+				279DC5C321C7A29A00916070 /* Musicians_CalculatorTests.swift in Sources */,
+				279DC5CD21C7A5AB00916070 /* SampleRateTests.swift in Sources */,
+				279DC5CF21C7A6F600916070 /* Division.swift in Sources */,
+				279DC5CE21C7A6E600916070 /* SampleRate.swift in Sources */,
+				279DC5D021C7A6FA00916070 /* MusiciansCalculator.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		279E297521C48981002B9C52 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -161,6 +246,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		279DC5C621C7A29A00916070 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 279E297821C48981002B9C52 /* Musicians Calculator */;
+			targetProxy = 279DC5C521C7A29A00916070 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		279E298021C48981002B9C52 /* Main.storyboard */ = {
@@ -182,6 +275,51 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		279DC5C721C7A29A00916070 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B2JTZ35DJY;
+				INFOPLIST_FILE = "Musicians CalculatorTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.michaelaleksa.Musicians-CalculatorTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Musicians Calculator.app/Musicians Calculator";
+			};
+			name = Debug;
+		};
+		279DC5C821C7A29A00916070 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B2JTZ35DJY;
+				INFOPLIST_FILE = "Musicians CalculatorTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.michaelaleksa.Musicians-CalculatorTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Musicians Calculator.app/Musicians Calculator";
+			};
+			name = Release;
+		};
 		279E298921C48983002B9C52 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -309,7 +447,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.michaelaleksa.Musicians-Calculator";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -327,7 +465,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.michaelaleksa.Musicians-Calculator";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -335,6 +473,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		279DC5C921C7A29A00916070 /* Build configuration list for PBXNativeTarget "Musicians CalculatorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				279DC5C721C7A29A00916070 /* Debug */,
+				279DC5C821C7A29A00916070 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		279E297421C48981002B9C52 /* Build configuration list for PBXProject "Musicians Calculator" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
