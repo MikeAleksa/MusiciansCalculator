@@ -18,46 +18,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NXa-Cv-Bw0">
-                                <rect key="frame" x="139" y="51" width="97" height="32"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="32" id="TuM-bG-jWZ"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad" keyboardAppearance="alert" enablesReturnKeyAutomatically="YES"/>
-                                <connections>
-                                    <action selector="editBPM:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="gPQ-of-49n"/>
-                                </connections>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oG7-zy-euS">
-                                <rect key="frame" x="139" y="567" width="97" height="77"/>
-                                <color key="backgroundColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="77" id="hhl-Vr-98F"/>
-                                </constraints>
-                                <connections>
-                                    <action selector="touchButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="D6h-97-jOi"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I7B-N6-Zdf">
-                                <rect key="frame" x="56" y="91" width="137" height="949"/>
+                                <rect key="frame" x="16" y="116" width="343" height="435"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter BPM" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NXa-Cv-Bw0">
+                                <rect key="frame" x="98" y="76" width="179" height="32"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" keyboardAppearance="alert"/>
+                                <connections>
+                                    <action selector="editBPM:" destination="BYZ-38-t0r" eventType="valueChanged" id="opC-KL-Rwo"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="NXa-Cv-Bw0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="31" id="5BT-T4-QBJ"/>
-                            <constraint firstItem="I7B-N6-Zdf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="56" id="DXj-iJ-5Oo"/>
-                            <constraint firstItem="oG7-zy-euS" firstAttribute="top" secondItem="I7B-N6-Zdf" secondAttribute="bottom" constant="8" symbolic="YES" id="FbU-mt-STO"/>
-                            <constraint firstItem="NXa-Cv-Bw0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="L9J-bR-ZXc"/>
-                            <constraint firstItem="NXa-Cv-Bw0" firstAttribute="centerX" secondItem="I7B-N6-Zdf" secondAttribute="centerX" id="cEy-Kl-k9C"/>
-                            <constraint firstItem="I7B-N6-Zdf" firstAttribute="top" secondItem="NXa-Cv-Bw0" secondAttribute="bottom" constant="8" symbolic="YES" id="gJz-a4-AMl"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="oG7-zy-euS" secondAttribute="bottom" constant="23" id="maB-be-X5S"/>
-                            <constraint firstItem="NXa-Cv-Bw0" firstAttribute="trailing" secondItem="oG7-zy-euS" secondAttribute="trailing" id="p1Z-rj-EvF"/>
-                            <constraint firstItem="NXa-Cv-Bw0" firstAttribute="leading" secondItem="oG7-zy-euS" secondAttribute="leading" id="p2b-Cw-w8q"/>
-                            <constraint firstItem="NXa-Cv-Bw0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="139" id="yJb-ln-PCM"/>
+                            <constraint firstItem="I7B-N6-Zdf" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="9Gf-wG-HXA"/>
+                            <constraint firstItem="I7B-N6-Zdf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="D7V-4Y-nAC"/>
+                            <constraint firstItem="I7B-N6-Zdf" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="EJu-nT-UQ1"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="I7B-N6-Zdf" secondAttribute="bottom" constant="116" id="OKx-EV-yv0"/>
+                            <constraint firstItem="I7B-N6-Zdf" firstAttribute="centerX" secondItem="NXa-Cv-Bw0" secondAttribute="centerX" id="iPg-ot-JCV"/>
+                            <constraint firstItem="NXa-Cv-Bw0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="98" id="n1B-cF-te0"/>
+                            <constraint firstItem="I7B-N6-Zdf" firstAttribute="top" secondItem="NXa-Cv-Bw0" secondAttribute="bottom" constant="8" symbolic="YES" id="olv-Zm-PWb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -68,7 +53,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="24.800000000000001" y="30.134932533733135"/>
+            <point key="canvasLocation" x="24.375" y="29.577464788732396"/>
         </scene>
     </scenes>
 </document>
