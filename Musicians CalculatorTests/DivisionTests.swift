@@ -10,6 +10,7 @@ import XCTest
 
 class DivisionTests: XCTestCase {
 
+    let mod: Double = 1.0
     var bpm : Double = 0.0
     var sr : Double = 0.0
     var dvQuarter : Division!
@@ -18,13 +19,9 @@ class DivisionTests: XCTestCase {
     override func setUp() {
         bpm = 120
         sr = 44100
-        dvQuarter = Division(withName: "1/4", withbpm: bpm, withsr: sr)
-        dvEighth = Division(withName: "1/8", withbpm: bpm, withsr: sr)
+        dvQuarter = Division(withName: "1/4", withbpm: bpm, withsr: sr, withMod: mod)
+        dvEighth = Division(withName: "1/8", withbpm: bpm, withsr: sr, withMod: mod)
 
-    }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
     func testInitQuarter() {
@@ -36,14 +33,14 @@ class DivisionTests: XCTestCase {
     func testQuarterGetMilliseconds() {
         bpm = 130
         sr = 44100
-        dvQuarter.updateTimes(withbpm: bpm, withsr: sr)
+        dvQuarter.updateTimes(withbpm: bpm, withsr: sr, withMod: mod)
         XCTAssertEqual(dvQuarter.getMilliseconds(), (60000.0/130.0))
     }
     
     func testQuarterGetSamples() {
         bpm = 130
         sr = 88200
-        dvQuarter.updateTimes(withbpm: bpm, withsr: sr)
+        dvQuarter.updateTimes(withbpm: bpm, withsr: sr, withMod: mod)
         XCTAssertEqual(dvQuarter.getSamples(), (60.0*88200.0/130.0))
     }
     
@@ -56,14 +53,14 @@ class DivisionTests: XCTestCase {
     func testEighthGetMilliseconds() {
         bpm = 130
         sr = 44100
-        dvEighth.updateTimes(withbpm: bpm, withsr: sr)
+        dvEighth.updateTimes(withbpm: bpm, withsr: sr, withMod: mod)
         XCTAssertEqual(dvEighth.getMilliseconds(), (60000.0/130.0/2.0))
     }
     
     func testEighthGetSamples() {
         bpm = 130
         sr = 88200
-        dvEighth.updateTimes(withbpm: bpm, withsr: sr)
+        dvEighth.updateTimes(withbpm: bpm, withsr: sr, withMod: mod)
         XCTAssertEqual(dvEighth.getSamples(), (60.0*88200.0/130.0/2.0))
     }
     

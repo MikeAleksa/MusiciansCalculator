@@ -15,11 +15,18 @@ class MusiciansCalculator : SampleRate {
             self.updateDivisions()
         }
     }
-        
+    
+    private var modifier : Double {
+        didSet {
+            self.updateDivisions()
+        }
+    }
+    
     override init() {
         bpm = 120
+        modifier = 1.0
         for name in ["1/64", "1/32", "1/16", "1/8", "1/4", "1/2", "1/1", "2/1"] {
-            let division = Division(withName: name, withbpm: bpm, withsr: MusiciansCalculator.getSR())
+            let division = Division(withName: name, withbpm: bpm, withsr: MusiciansCalculator.getSR(), withMod: modifier)
             divisions.append(division)
         }
     }
@@ -30,7 +37,7 @@ class MusiciansCalculator : SampleRate {
     
     private func updateDivisions() {
         for division in divisions {
-            division.updateTimes(withbpm: bpm, withsr: MusiciansCalculator.getSR())
+            division.updateTimes(withbpm: bpm, withsr: MusiciansCalculator.getSR(), withMod: modifier)
         }
     }
     
@@ -47,5 +54,18 @@ class MusiciansCalculator : SampleRate {
     public func getBPM() -> Double {
         return self.bpm
     }
+    
+    public func setDotted() {
+        self.modifier = 1.5
+    }
+    
+    public func setTriplet() {
+        self.modifier = (2.0/3.0)
+    }
+    
+    public func setUnmodified() {
+        self.modifier = 1.0
+    }
 }
+
 

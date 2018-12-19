@@ -10,31 +10,28 @@ import Foundation
 
 class Division {
 
-    static var dot : Bool = false
-    static var triplet : Bool = false
-
     private var name : String
     private var ms : Double = 0
     private var samples : Double = 0
 
-    init(withName name : String, withbpm bpm : Double, withsr sr: Double) {
+    init(withName name : String, withbpm bpm : Double, withsr sr: Double, withMod mod: Double) {
         self.name = name
-        self.ms = calculateMilliseconds(withbpm: bpm)
-        self.samples = calculateSamples(withbpm: bpm, withsr: sr)
+        self.ms = calculateMilliseconds(withbpm: bpm, withMod: mod)
+        self.samples = calculateSamples(withbpm: bpm, withsr: sr, withMod: mod)
     }
     
     /* * * * * * * * * * * * * * * *
      *           PRIVATE           *
      * * * * * * * * * * * * * * * */
     
-    private func calculateMilliseconds(withbpm bpm : Double) -> Double {
+    private func calculateMilliseconds(withbpm bpm : Double, withMod mod : Double) -> Double {
         // 60 sec/min * 1000 ms/sec * 4 beats/bar * division / BPM = Length of Division in milliseconds
-        return 60 * 1000 * 4 * self.nameToDouble() / bpm
+        return mod * 60 * 1000 * 4 * self.nameToDouble() / bpm
     }
     
-    private func calculateSamples(withbpm bpm : Double, withsr sr : Double) -> Double {
+    private func calculateSamples(withbpm bpm : Double, withsr sr : Double, withMod mod : Double) -> Double {
         // Samples/sec * 60 sec/min * 4 beats/bar * division = Length of Division in samples
-        return 60 * sr * 4 * self.nameToDouble() / bpm
+        return mod * 60 * sr * 4 * self.nameToDouble() / bpm
     }
     
     private func nameToDouble() -> Double {
@@ -64,9 +61,9 @@ class Division {
      *           PUBLIC            *
      * * * * * * * * * * * * * * * */
     
-    public func updateTimes(withbpm bpm : Double, withsr sr : Double) {
-        self.ms = calculateMilliseconds(withbpm: bpm)
-        self.samples = calculateSamples(withbpm: bpm, withsr: sr)
+    public func updateTimes(withbpm bpm : Double, withsr sr : Double, withMod mod : Double) {
+        self.ms = calculateMilliseconds(withbpm: bpm, withMod: mod)
+        self.samples = calculateSamples(withbpm: bpm, withsr: sr, withMod: mod)
 
     }
   
