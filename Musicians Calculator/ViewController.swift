@@ -10,15 +10,14 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    let divisions = [Division]()
+    var divisions = [Division]()
 
-//    init() {
-//        for name in ["1/64", "1/32", "1/16", "1/8", "1/4", "1/2", "1/1", "2/1"] {
-//            let division = Division(withName: name)
-//            divisions.append(division)
-//
-//        }
-//    }
+    override func viewDidLoad() {
+        for name in ["1/64", "1/32", "1/16", "1/8", "1/4", "1/2", "1/1", "2/1"] {
+            let division = Division(withName: name)
+            divisions.append(division)
+        }
+    }
     
     @IBOutlet weak var durationDisplay: UILabel!
 
@@ -30,7 +29,6 @@ class ViewController: UIViewController {
         updateDuration(withbpm: doubleBPM, on: durationDisplay)
     }
 
-    
     func updateDuration(withbpm bpm: Double, on label: UILabel) {
         durationDisplay.numberOfLines = 0
         var newLabel : String = ""
@@ -39,6 +37,5 @@ class ViewController: UIViewController {
         }
         label.text = newLabel
     }
-    
     
 }
