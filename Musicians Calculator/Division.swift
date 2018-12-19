@@ -10,6 +10,10 @@ import Foundation
 
 class Division : SampleRate {
 
+    static var sampleRate: Double = 44100
+    static private var bpm : Double = 120
+    static private var modifier : Double = 1.0
+    
     private var name : String
 
     init(withName name : String) {
@@ -56,15 +60,12 @@ class Division : SampleRate {
     }
     
     public func getSamples() -> Double {
-        return (Division.modifier * 60 * SampleRate.getSR() * 4 * self.nameToDouble() / Division.bpm)
+        return (Division.modifier * 60 * Division.getSR() * 4 * self.nameToDouble() / Division.bpm)
     }
     
     /* * * * * * * * * * * * * * * *
      *           STATIC            *
      * * * * * * * * * * * * * * * */
-    
-    static private var bpm : Double = 120
-    static private var modifier : Double = 1.0
     
     static public func setBPM(withbpm newbpm : Double) {
         bpm = newbpm

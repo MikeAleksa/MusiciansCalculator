@@ -8,32 +8,35 @@
 
 import Foundation
 
-class SampleRate {
+protocol SampleRate {
     
-    static private var sampleRate : Double = 44100
+    static var sampleRate : Double { get set }
     
-    /* * * * * * * * * * * * * * * *
-     *           PUBLIC            *
-     * * * * * * * * * * * * * * * */
-    
-    static public func set44100() {
+    static func set44100()
+    static func set48000()
+    static func set88200()
+    static func set96000()
+    static func getSR() -> Double
+}
+
+extension SampleRate {
+    static func set44100() {
         sampleRate = 44100
     }
     
-    static public func set48000() {
+    static func set48000() {
         sampleRate = 48000
     }
     
-    static public func set88200() {
+    static func set88200() {
         sampleRate = 88200
     }
     
-    static public func set96000() {
+    static func set96000() {
         sampleRate = 96000
     }
     
-    static public func getSR() -> Double {
+    static func getSR() -> Double {
         return sampleRate
     }
 }
-
