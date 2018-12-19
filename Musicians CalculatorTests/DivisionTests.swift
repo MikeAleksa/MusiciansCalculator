@@ -81,5 +81,29 @@ class DivisionTests: XCTestCase {
         Division.setBPM(withbpm: 120)
         XCTAssertEqual(dvQuarter.getMilliseconds(), 500.0)
     }
+    
+    func testSet44100() {
+        Division.set44100()
+        let samplerate = Division.getSR()
+        XCTAssertTrue(samplerate == 44100)
+    }
+    
+    func testSet48000() {
+        Division.set48000()
+        let samplerate = Division.getSR()
+        XCTAssertTrue(samplerate == 48000)
+    }
+    
+    func testSet88200() {
+        Division.set88200()
+        let samplerate = Division.getSR()
+        XCTAssertTrue(samplerate == 88200)
+    }
+    
+    func testSet96000() {
+        Division.set96000()
+        let samplerate = Division.getSR()
+        XCTAssertTrue(samplerate == 96000)
+    }
 }
 

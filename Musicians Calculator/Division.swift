@@ -8,12 +8,12 @@
 
 import Foundation
 
-class Division : SampleRate {
+class Division {
 
-    static var sampleRate: Double = 44100
-    static private var bpm : Double = 120
+    static private var sampleRate: Double = 44100
+    static private var BPM : Double = 120
     static private var modifier : Double = 1.0
-    
+
     private var name : String
 
     init(withName name : String) {
@@ -56,24 +56,16 @@ class Division : SampleRate {
     }
     
     public func getMilliseconds() -> Double {
-        return (Division.modifier * 60 * 1000 * 4 * self.nameToDouble() / Division.bpm)
+        return (Division.modifier * 60 * 1000 * 4 * self.nameToDouble() / Division.getBPM())
     }
     
     public func getSamples() -> Double {
-        return (Division.modifier * 60 * Division.getSR() * 4 * self.nameToDouble() / Division.bpm)
+        return (Division.modifier * 60 * Division.getSR() * 4 * self.nameToDouble() / Division.getBPM())
     }
     
     /* * * * * * * * * * * * * * * *
      *           STATIC            *
      * * * * * * * * * * * * * * * */
-    
-    static public func setBPM(withbpm newbpm : Double) {
-        bpm = newbpm
-    }
-
-    static public func getBPM() -> Double {
-        return bpm
-    }
     
     static public func setDotted() {
         modifier = 1.5
@@ -85,5 +77,33 @@ class Division : SampleRate {
     
     static public func setUnmodified() {
         modifier = 1.0
+    }
+    
+    static public func set44100() {
+        sampleRate = 44100
+    }
+    
+    static public func set48000() {
+        sampleRate = 48000
+    }
+    
+    static public func set88200() {
+        sampleRate = 88200
+    }
+    
+    static public func set96000() {
+        sampleRate = 96000
+    }
+    
+    static public func getSR() -> Double {
+        return sampleRate
+    }
+    
+    static public func setBPM(withbpm newbpm : Double) {
+        BPM = newbpm
+    }
+
+    static public func getBPM() -> Double {
+        return BPM
     }
 }
