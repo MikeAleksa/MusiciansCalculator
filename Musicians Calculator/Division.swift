@@ -8,31 +8,17 @@
 
 import Foundation
 
-class Division {
+class Division : SampleRate {
 
     private var name : String
-    private var ms : Double = 0
-    private var samples : Double = 0
 
-    init(withName name : String, withbpm bpm : Double, withsr sr: Double, withMod mod: Double) {
+    init(withName name : String) {
         self.name = name
-        self.ms = calculateMilliseconds(withbpm: bpm, withMod: mod)
-        self.samples = calculateSamples(withbpm: bpm, withsr: sr, withMod: mod)
     }
     
     /* * * * * * * * * * * * * * * *
      *           PRIVATE           *
      * * * * * * * * * * * * * * * */
-    
-    private func calculateMilliseconds(withbpm bpm : Double, withMod mod : Double) -> Double {
-        // 60 sec/min * 1000 ms/sec * 4 beats/bar * division / BPM = Length of Division in milliseconds
-        return mod * 60 * 1000 * 4 * self.nameToDouble() / bpm
-    }
-    
-    private func calculateSamples(withbpm bpm : Double, withsr sr : Double, withMod mod : Double) -> Double {
-        // Samples/sec * 60 sec/min * 4 beats/bar * division = Length of Division in samples
-        return mod * 60 * sr * 4 * self.nameToDouble() / bpm
-    }
     
     private func nameToDouble() -> Double {
         switch self.name {
@@ -61,21 +47,42 @@ class Division {
      *           PUBLIC            *
      * * * * * * * * * * * * * * * */
     
-    public func updateTimes(withbpm bpm : Double, withsr sr : Double, withMod mod : Double) {
-        self.ms = calculateMilliseconds(withbpm: bpm, withMod: mod)
-        self.samples = calculateSamples(withbpm: bpm, withsr: sr, withMod: mod)
-
-    }
-  
     public func getName() -> String {
         return self.name
     }
     
     public func getMilliseconds() -> Double {
-        return self.ms
+        return (Division.modifier * 60 * 1000 * 4 * self.nameToDouble() / Division.bpm)
     }
     
     public func getSamples() -> Double {
-        return self.samples
+        return (Division.modifier * 60 * SampleRate.getSR() * 4 * self.nameToDouble() / Division.bpm)
+    }
+    
+    /* * * * * * * * * * * * * * * *
+     *           STATIC            *
+     * * * * * * * * * * * * * * * */
+    
+    static private var bpm : Double = 120
+    static private var modifier : Double = 1.0
+    
+    static public func setBPM(withbpm newbpm : Double) {
+        bpm = newbpm
+    }
+
+    static public func getBPM() -> Double {
+        return bpm
+    }
+    
+    static public func setDotted() {
+        modifier = 1.5
+    }
+    
+    static public func setTriplet() {
+        modifier = (2.0/3.0)
+    }
+    
+    static public func setUnmodified() {
+        modifier = 1.0
     }
 }

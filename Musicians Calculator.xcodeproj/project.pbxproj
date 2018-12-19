@@ -7,18 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		279DC5C321C7A29A00916070 /* Musicians_CalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279DC5C221C7A29A00916070 /* Musicians_CalculatorTests.swift */; };
 		279DC5CD21C7A5AB00916070 /* SampleRateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279DC5CC21C7A5AB00916070 /* SampleRateTests.swift */; };
 		279DC5CE21C7A6E600916070 /* SampleRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279E299121C4C855002B9C52 /* SampleRate.swift */; };
 		279DC5CF21C7A6F600916070 /* Division.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279E299521C4CBF0002B9C52 /* Division.swift */; };
-		279DC5D021C7A6FA00916070 /* MusiciansCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279E298F21C4C587002B9C52 /* MusiciansCalculator.swift */; };
 		279DC5D221C7A91F00916070 /* DivisionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279DC5D121C7A91F00916070 /* DivisionTests.swift */; };
 		279E297D21C48981002B9C52 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279E297C21C48981002B9C52 /* AppDelegate.swift */; };
 		279E297F21C48981002B9C52 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279E297E21C48981002B9C52 /* ViewController.swift */; };
 		279E298221C48981002B9C52 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 279E298021C48981002B9C52 /* Main.storyboard */; };
 		279E298421C48983002B9C52 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 279E298321C48983002B9C52 /* Assets.xcassets */; };
 		279E298721C48983002B9C52 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 279E298521C48983002B9C52 /* LaunchScreen.storyboard */; };
-		279E299021C4C587002B9C52 /* MusiciansCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279E298F21C4C587002B9C52 /* MusiciansCalculator.swift */; };
 		279E299221C4C855002B9C52 /* SampleRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279E299121C4C855002B9C52 /* SampleRate.swift */; };
 		279E299621C4CBF0002B9C52 /* Division.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279E299521C4CBF0002B9C52 /* Division.swift */; };
 /* End PBXBuildFile section */
@@ -35,7 +32,6 @@
 
 /* Begin PBXFileReference section */
 		279DC5C021C7A29A00916070 /* Musicians CalculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Musicians CalculatorTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		279DC5C221C7A29A00916070 /* Musicians_CalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Musicians_CalculatorTests.swift; sourceTree = "<group>"; };
 		279DC5C421C7A29A00916070 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		279DC5CC21C7A5AB00916070 /* SampleRateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleRateTests.swift; sourceTree = "<group>"; };
 		279DC5D121C7A91F00916070 /* DivisionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DivisionTests.swift; sourceTree = "<group>"; };
@@ -46,7 +42,6 @@
 		279E298321C48983002B9C52 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		279E298621C48983002B9C52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		279E298821C48983002B9C52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		279E298F21C4C587002B9C52 /* MusiciansCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusiciansCalculator.swift; sourceTree = "<group>"; };
 		279E299121C4C855002B9C52 /* SampleRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleRate.swift; sourceTree = "<group>"; };
 		279E299521C4CBF0002B9C52 /* Division.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Division.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -74,7 +69,6 @@
 			children = (
 				279DC5D121C7A91F00916070 /* DivisionTests.swift */,
 				279DC5CC21C7A5AB00916070 /* SampleRateTests.swift */,
-				279DC5C221C7A29A00916070 /* Musicians_CalculatorTests.swift */,
 				279DC5C421C7A29A00916070 /* Info.plist */,
 			);
 			path = "Musicians CalculatorTests";
@@ -107,7 +101,6 @@
 				279E299521C4CBF0002B9C52 /* Division.swift */,
 				279E298021C48981002B9C52 /* Main.storyboard */,
 				279E298821C48983002B9C52 /* Info.plist */,
-				279E298F21C4C587002B9C52 /* MusiciansCalculator.swift */,
 			);
 			path = "Musicians Calculator";
 			sourceTree = "<group>";
@@ -225,11 +218,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				279DC5D221C7A91F00916070 /* DivisionTests.swift in Sources */,
-				279DC5C321C7A29A00916070 /* Musicians_CalculatorTests.swift in Sources */,
 				279DC5CD21C7A5AB00916070 /* SampleRateTests.swift in Sources */,
 				279DC5CF21C7A6F600916070 /* Division.swift in Sources */,
 				279DC5CE21C7A6E600916070 /* SampleRate.swift in Sources */,
-				279DC5D021C7A6FA00916070 /* MusiciansCalculator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,7 +231,6 @@
 				279E297F21C48981002B9C52 /* ViewController.swift in Sources */,
 				279E299621C4CBF0002B9C52 /* Division.swift in Sources */,
 				279E299221C4C855002B9C52 /* SampleRate.swift in Sources */,
-				279E299021C4C587002B9C52 /* MusiciansCalculator.swift in Sources */,
 				279E297D21C48981002B9C52 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
