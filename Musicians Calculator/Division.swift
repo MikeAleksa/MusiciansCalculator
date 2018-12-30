@@ -9,23 +9,38 @@
 import Foundation
 
 class Division {
-
+    
+    // MARK: static private variables
     static private var sampleRate: Double = 44100
     static private var BPM : Double = 120
     static private var modifier : Double = 1.0
-
+    
+    // MARK: instance variables
     private var name : String
-
+    public var ms : Double {
+        return (Division.modifier * 60 * 1000 * 4 * self.nameToDouble() / Division.BPM)
+    }
+    public var samples : Double {
+        return (Division.modifier * 60 * Division.getSR() * 4 * self.nameToDouble() / Division.BPM)
+    }
+    
     init(withName name : String) {
         self.name = name
     }
     
+    // TODO: add functionality to make 1/8, 1/4, or 1/2 note be the beat
+    
+    // TODO: make note values in a dictionary?
+    
+    
     /* * * * * * * * * * * * * * * *
-     *           PRIVATE           *
+     *      // MARK: PRIVATE       *
      * * * * * * * * * * * * * * * */
     
     private func nameToDouble() -> Double {
         switch self.name {
+        case "4/1":
+            return 4
         case "2/1":
             return 2
         case "1/1":
@@ -42,29 +57,23 @@ class Division {
             return 1/32
         case "1/64":
             return 1/64
+        case "1/128":
+            return 1/128
         default:
             return 0
         }
     }
     
     /* * * * * * * * * * * * * * * *
-     *           PUBLIC            *
+     *     // MARK: PUBLIC         *
      * * * * * * * * * * * * * * * */
     
     public func getName() -> String {
         return self.name
     }
     
-    public func getMilliseconds() -> Double {
-        return (Division.modifier * 60 * 1000 * 4 * self.nameToDouble() / Division.getBPM())
-    }
-    
-    public func getSamples() -> Double {
-        return (Division.modifier * 60 * Division.getSR() * 4 * self.nameToDouble() / Division.getBPM())
-    }
-    
     /* * * * * * * * * * * * * * * *
-     *           STATIC            *
+     *     // MARK: STATIC         *
      * * * * * * * * * * * * * * * */
     
     static public func setDotted() {
@@ -102,7 +111,7 @@ class Division {
     static public func setBPM(withbpm newbpm : Double) {
         BPM = newbpm
     }
-
+    
     static public func getBPM() -> Double {
         return BPM
     }
