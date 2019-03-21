@@ -95,7 +95,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     // when editing finishes on the BPM field, update the BPM in the model and reload the Duration Display
     @IBAction private func editingDidEndBPM(_ sender: UITextField) {
-        let doubleBPM = Double(sender.text!) ?? 0
+        // remove any decimal points after first decimal point and update the BPM field
+        let input = sender.text ?? "0"
+        var set = Set<Character>()
+        let trimmed = input.filter{ set.insert($0).inserted }
+        bpmField.text = trimmed
+        // set BPM with the trimmed input and update duration
+        let doubleBPM = Double(trimmed) ?? 0
         Division.setBPM(withbpm: doubleBPM)
         updateDuration(on: durationDisplay)
     }
@@ -107,14 +113,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
         for division in divisions {
         let name = division.getName()
             if (showMilliseconds) {
-                newLabel += name + " note:\t  " + ((division.ms >= 1000)
-                    ? String(format: "%.2f", division.ms/1000) + " sec\n"
-                    : String(format: "%.2f", division.ms) + " ms\n")
+                newLabel += "\(name) note:\t\t" + ((division.ms >= 1000)
+                    ? "\(String(format: "%.2f", division.ms/1000)) sec\n"
+                    : "\(String(format: "%.2f", division.ms)) ms\n")
             }
             else {
-                newLabel += name + " note:\t  " + ((division.samples >= 1000)
-                    ? String(format: "%.2", division.samples/1000) + "k samples\n"
-                    : String(format: "%.0f", division.samples) + " samples\n")
+                newLabel += "\(name) note:\t\t" + ((division.samples >= 1000)
+                    ? "\(String(format: "%.2", division.samples/1000))k samples\n"
+                    : "\(String(format: "%.0f", division.samples)) samples\n")
             }
         }
         label.text = newLabel
