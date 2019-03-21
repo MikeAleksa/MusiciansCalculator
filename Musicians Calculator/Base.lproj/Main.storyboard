@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter BPM" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NXa-Cv-Bw0">
-                                <rect key="frame" x="98" y="46" width="179" height="32"/>
+                                <rect key="frame" x="98" y="46" width="179" height="36"/>
                                 <color key="backgroundColor" red="0.33330115675926208" green="0.33335390686988831" blue="0.33328968286514282" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <gestureRecognizers/>
                                 <color key="textColor" red="0.88619661329999999" green="0.88632434609999999" blue="0.88616871829999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -29,32 +29,30 @@
                                     <action selector="editingDidEndBPM:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="h32-Ms-9R1"/>
                                 </connections>
                             </textField>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I7B-N6-Zdf">
-                                <rect key="frame" x="16" y="94" width="343" height="478"/>
-                                <gestureRecognizers/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                <color key="textColor" red="0.87051159143447876" green="0.87063723802566528" blue="0.87048423290252686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Kqv-uf-rKn">
+                                <rect key="frame" x="16" y="90" width="157" height="469"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.14116021989999999" green="0.14118680359999999" blue="0.14115440849999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </tableView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2Lg-Qp-fer">
+                                <rect key="frame" x="181" y="90" width="178" height="469"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.14116021989999999" green="0.14118680359999999" blue="0.14115440849999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.14116021990776062" green="0.14118680357933044" blue="0.14115440845489502" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="I7B-N6-Zdf" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="9Gf-wG-HXA"/>
-                            <constraint firstItem="I7B-N6-Zdf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="D7V-4Y-nAC"/>
-                            <constraint firstItem="I7B-N6-Zdf" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-0.5" id="EJu-nT-UQ1"/>
                             <constraint firstItem="NXa-Cv-Bw0" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="EOs-nC-vP6"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="I7B-N6-Zdf" secondAttribute="bottom" constant="95" id="OKx-EV-yv0"/>
                             <constraint firstItem="NXa-Cv-Bw0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="26" id="QYz-LH-EWb"/>
-                            <constraint firstItem="I7B-N6-Zdf" firstAttribute="centerX" secondItem="NXa-Cv-Bw0" secondAttribute="centerX" id="iPg-ot-JCV"/>
                             <constraint firstItem="NXa-Cv-Bw0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="98" id="n1B-cF-te0"/>
-                            <constraint firstItem="I7B-N6-Zdf" firstAttribute="top" secondItem="NXa-Cv-Bw0" secondAttribute="bottom" constant="16" id="olv-Zm-PWb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="bpmField" destination="NXa-Cv-Bw0" id="kU8-od-baQ"/>
-                        <outlet property="durationDisplay" destination="I7B-N6-Zdf" id="Y1D-0e-wd0"/>
+                        <outlet property="divisionDisplay" destination="Kqv-uf-rKn" id="qio-JK-C7x"/>
+                        <outlet property="durationDisplay" destination="2Lg-Qp-fer" id="wWU-rN-ebR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

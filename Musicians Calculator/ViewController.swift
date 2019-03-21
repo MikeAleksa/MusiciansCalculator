@@ -37,12 +37,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
     private(set) var showMilliseconds = true
     
     // MARK: outlets
-    @IBOutlet private weak var durationDisplay: UILabel!
+    @IBOutlet weak var divisionDisplay: UITableView!
+    @IBOutlet weak var durationDisplay: UITableView!
     @IBOutlet private weak var bpmField: UITextField!
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait
-}
+    }
     
     override internal func viewDidLoad() {
         super.viewDidLoad()
@@ -72,14 +73,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
                      "4/1"] {
             let division = Division(withName: name)
             divisions.append(division)
-            updateDuration(on: durationDisplay)
+            updateDuration()
         }
     }
     
     @objc private func handleTap(sender: UITapGestureRecognizer) {
         if sender.state == .ended {
             showMilliseconds = (showMilliseconds ? false : true)
-            updateDuration(on: durationDisplay)
+            updateDuration()
         }
     }
     
@@ -103,27 +104,25 @@ class ViewController: UIViewController, UITextFieldDelegate {
         // set BPM with the trimmed input and update duration
         let doubleBPM = Double(trimmed) ?? 0
         Division.setBPM(withbpm: doubleBPM)
-        updateDuration(on: durationDisplay)
+        updateDuration()
     }
     
     // reload the Duration Display
-    private func updateDuration(on label: UILabel) {
-        durationDisplay.numberOfLines = 0
+    private func updateDuration() {
         var newLabel : String = ""
         for division in divisions {
-        let name = division.getName()
-            if (showMilliseconds) {
-                newLabel += "\(name) note:\t\t" + ((division.ms >= 1000)
-                    ? "\(String(format: "%.2f", division.ms/1000)) sec\n"
-                    : "\(String(format: "%.2f", division.ms)) ms\n")
-            }
-            else {
-                newLabel += "\(name) note:\t\t" + ((division.samples >= 1000)
-                    ? "\(String(format: "%.2", division.samples/1000))k samples\n"
-                    : "\(String(format: "%.0f", division.samples)) samples\n")
-            }
+            let name = division.getName()
+                if (showMilliseconds) {
+                    newLabel += "\(name) note:\t\t" + ((division.ms >= 1000)
+                        ? "\(String(format: "%.2f", division.ms/1000)) sec\n"
+                        : "\(String(format: "%.2f", division.ms)) ms\n")
+                }
+                else {
+                    newLabel += "\(name) note:\t\t" + ((division.samples >= 1000)
+                        ? "\(String(format: "%.2", division.samples/1000))k samples\n"
+                        : "\(String(format: "%.0f", division.samples)) samples\n")
+                }
         }
-        label.text = newLabel
+//        durationDisplay.text = newLabel
     }
-    
 }
