@@ -32,9 +32,6 @@ extension UITextField{
 
 class ViewController: UIViewController, UITextFieldDelegate {
     
-    // MARK: text style
-    let font = UIFont.TextStyle.body
-    
     // MARK: variables
     private var divisions = [Division]()
     private(set) var showMilliseconds = true
@@ -52,6 +49,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         // add done button to keyboard - call endEditing() on bpmField when pressed
         bpmField.delegate = self
+        bpmField.attributedPlaceholder = NSAttributedString(string: "Set BPM", attributes: [NSAttributedString.Key.foregroundColor : #colorLiteral(red: 0.8705115914, green: 0.870637238, blue: 0.8704842329, alpha: 1)])
         bpmField.addDoneButtonToKeyboard(myAction: #selector(bpmField.endEditing(_:)))
         bpmField.keyboardType = .decimalPad
         bpmField.text = "120"
