@@ -32,6 +32,9 @@ extension UITextField{
 
 class ViewController: UIViewController, UITextFieldDelegate {
     
+    // MARK: text style
+    let font = UIFont.TextStyle.body
+    
     // MARK: variables
     private var divisions = [Division]()
     private(set) var showMilliseconds = true
@@ -39,6 +42,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
     // MARK: outlets
     @IBOutlet private weak var durationDisplay: UILabel!
     @IBOutlet private weak var bpmField: UITextField!
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+}
     
     override internal func viewDidLoad() {
         super.viewDidLoad()
@@ -55,7 +62,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
         tapGesture.numberOfTapsRequired = 2
         
         // load division array with values
-        for name in ["1/128", "1/64", "1/32", "1/16", "1/8", "1/4", "1/2", "1/1", "2/1", "4/1"] {
+        for name in ["1/128",
+                     "1/64",
+                     "1/32",
+                     "1/16",
+                     "1/8",
+                     "1/4",
+                     "1/2",
+                     "1/1",
+                     "2/1",
+                     "4/1"] {
             let division = Division(withName: name)
             divisions.append(division)
             updateDuration(on: durationDisplay)
@@ -73,14 +89,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     // TODO: change duration display to be a table instead of a text field
     
-    // limit BPM field input to numbers and decimal points
-    // TODO: handle the possibility of the user trying to put in multiple decimal points?
+    // TODO: limit BPM field input to numbers and a single decimal point
     private func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let invalidCharacters = CharacterSet(charactersIn: "0123456789.").inverted
         return string.rangeOfCharacter(from: invalidCharacters) == nil
     }
     
-    // when editing ends on the BPM field update the BPM in the model and reload the Duration Display
+    // when editing finishes on the BPM field, update the BPM in the model and reload the Duration Display
     @IBAction private func editingDidEndBPM(_ sender: UITextField) {
         let doubleBPM = Double(sender.text!) ?? 0
         Division.setBPM(withbpm: doubleBPM)
@@ -92,13 +107,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
         durationDisplay.numberOfLines = 0
         var newLabel : String = ""
         for division in divisions {
+        let name = division.getName()
             if (showMilliseconds) {
-                newLabel += division.getName() + " note:\t  " + ((division.ms >= 1000)
+                newLabel += name + " note:\t  " + ((division.ms >= 1000)
                     ? String(format: "%.2f", division.ms/1000) + " sec\n"
                     : String(format: "%.2f", division.ms) + " ms\n")
             }
             else {
-                newLabel += division.getName() + " note:\t  " + ((division.samples >= 1000)
+                newLabel += name + " note:\t  " + ((division.samples >= 1000)
                     ? String(format: "%.2", division.samples/1000) + "k samples\n"
                     : String(format: "%.0f", division.samples) + " samples\n")
             }

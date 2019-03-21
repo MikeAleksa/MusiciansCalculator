@@ -104,6 +104,14 @@ class Division {
         sampleRate = 96000
     }
     
+    static public func set176400() {
+        sampleRate = 88200
+    }
+    
+    static public func set192000() {
+        sampleRate = 96000
+    }
+    
     static public func getSR() -> Double {
         return sampleRate
     }
