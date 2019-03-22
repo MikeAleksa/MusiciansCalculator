@@ -56,7 +56,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         bpmField.attributedPlaceholder = NSAttributedString(string: "Set BPM", attributes: [NSAttributedString.Key.foregroundColor : #colorLiteral(red: 0.8705115914, green: 0.870637238, blue: 0.8704842329, alpha: 1)])
         bpmField.addDoneButtonToKeyboard(myAction: #selector(bpmField.endEditing(_:)))
         bpmField.keyboardType = .decimalPad
-        bpmField.text = "120"
+        bpmField.text = "120 BPM"
         
         // add tap recognizer and call handleTap() on double tap
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:)))
@@ -68,6 +68,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             let division = Division(withName: name)
             divisions.append(division)
         }
+        durationDisplay.reloadData()
     }
     
     // limit BPM field input to numbers and a single decimal point
@@ -76,22 +77,37 @@ class ViewController: UIViewController, UITextFieldDelegate {
         return string.rangeOfCharacter(from: invalidCharacters) == nil
     }
     
+    
+    @IBAction func editingDidBeginBPM(_ sender: Any) {
+        bpmField.text = ""
+    }
+    
     // when editing finishes on the BPM field, update the BPM in the model and reload the Duration Display
     @IBAction private func editingDidEndBPM(_ sender: UITextField) {
-        // remove any decimal points after first decimal point and update the text in BPM field
+        // if there are multiple decimal points, remove any characters after and including the second decimal point
         let input = sender.text ?? "0"
-        var set = Set<Character>()
-        let trimmed = input.filter{ set.insert($0).inserted }
-        bpmField.text = trimmed + " BPM"
+        var trimmedInput : String = ""
+        var decimalCounter = 0
+        for ch in input {
+            if ch == "." {
+                    decimalCounter += 1
+            }
+            if decimalCounter <= 1 {
+                trimmedInput += String(ch)
+            }
+        }
+        bpmField.text = trimmedInput + " BPM"
         // set BPM in Division with the trimmed input then update duration display
-        let doubleBPM = Double(trimmed) ?? 0
+        let doubleBPM = Double(trimmedInput) ?? 0
         Division.setBPM(withbpm: doubleBPM)
+        durationDisplay.reloadData()
     }
     
     // toggle between milliseconds and samples, called by tapGesture
     @objc private func handleTap(sender: UITapGestureRecognizer) {
         if sender.state == .ended {
             showMilliseconds = (showMilliseconds ? false : true)
+            durationDisplay.reloadData()
         }
     }
     
@@ -110,7 +126,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let div = divisions[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "DivisionCell") as! Cell
-        cell.divisionView.text = "\(div.getName()) note:"
+        cell.divisionView.text = "\(div.getName()) note  ="
         if showMilliseconds {
             cell.timeView.text = ((div.ms >= 1000)
                         ? "\(String(format: "%.2f", div.ms/1000)) sec\n"
