@@ -42,6 +42,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var divLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     
+    
     // limit view to portrait mode
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait
@@ -68,8 +69,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         // load division array with values
         let names : [String] = ["1/1024", "1/512", "1/256", "1/128", "1/64", "1/16", "1/8", "1/4", "1/2", "1/1", "2/1", "4/1", "8/1", "16/1", "24/1"]
         for name in names {
-            let division = Division(withName: name)
-            divisions.append(division)
+            divisions.append(Division(withName: name))
         }
         
         // set initial label values and make footer to remove extra rows in table
@@ -77,7 +77,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         timeLabel.text = "Time"
         self.durationDisplay.tableFooterView = UIView()
 
-        // automatically scroll to center 1/4 note
+        // automatically scroll to 1/4 note
         let indexOfQuarter = Int(names.firstIndex(of: "1/4")!)
         let indexPath = NSIndexPath(row: indexOfQuarter+1, section: 0)
         durationDisplay.scrollToRow(at: indexPath as IndexPath, at: UITableView.ScrollPosition.middle, animated: true)
@@ -89,8 +89,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         return string.rangeOfCharacter(from: invalidCharacters) == nil
     }
     
-    
-    @IBAction func editingDidBeginBPM(_ sender: Any) {
+    // clear BPM field at start of editing
+    @IBAction func editingDidBeginBPM(_ sender: UITextField) {
         bpmField.text = ""
     }
     
@@ -129,12 +129,45 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    // TODO: switch between normal, dotted, and triplet in Division, then update duration display
+    // switch between normal, dotted, and triplet in Division, then update duration display
+    @IBAction func changeModifier(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            Division.setUnmodified()
+        case 1:
+            Division.setTriplet()
+        case 2:
+            Division.setDotted()
+        default:
+            Division.setUnmodified()
+        }
+        durationDisplay.reloadData()
+    }
     
-    // TODO: change the sample rate in Division, then update duration display
+    // change the sample rate in Division, then update duration display
+    @IBAction func changeSampleRate(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            Division.set44100()
+        case 1:
+            Division.set48000()
+        case 2:
+            Division.set88200()
+        case 3:
+            Division.set96000()
+        case 4:
+            Division.set176400()
+        case 5:
+            Division.set192000()
+        default:
+            Division.set44100()
+        }
+        durationDisplay.reloadData()
+    }
     
 }
 
+// populate the table from information derived from divisions
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina5_5" orientation="portrait">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,11 +15,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Musicians_Calculator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter BPM" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NXa-Cv-Bw0">
-                                <rect key="frame" x="107" y="35" width="200" height="50"/>
+                                <rect key="frame" x="87.666666666666686" y="59" width="200" height="50"/>
                                 <color key="backgroundColor" red="0.33330115675926208" green="0.33335390686988831" blue="0.33328968286514282" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -35,14 +35,14 @@
                                 </connections>
                             </textField>
                             <tableView clipsSubviews="YES" contentMode="center" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2Lg-Qp-fer">
-                                <rect key="frame" x="0.0" y="145" width="414" height="571"/>
+                                <rect key="frame" x="0.0" y="169" width="375" height="489"/>
                                 <color key="backgroundColor" red="0.14116021990776062" green="0.14118680357933044" blue="0.14115440845489502" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DivisionCell" id="oTo-m3-cBO" customClass="Cell" customModule="Musicians_Calculator" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oTo-m3-cBO" id="4sk-tO-oAV">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Division" textAlignment="center" lineBreakMode="middleTruncation" minimumFontSize="18" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ypw-bv-NHN">
@@ -89,33 +89,70 @@
                                 </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Div Label" textAlignment="center" lineBreakMode="middleTruncation" minimumFontSize="18" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F7I-7X-ziJ">
-                                <rect key="frame" x="20" y="100" width="182" height="35"/>
+                                <rect key="frame" x="20" y="124" width="162.66666666666666" height="35"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="25"/>
                                 <color key="textColor" red="0.83522045612335205" green="0.83534133434295654" blue="0.8351941704750061" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time Label" textAlignment="center" lineBreakMode="middleTruncation" minimumFontSize="18" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qeQ-oe-2dS">
-                                <rect key="frame" x="212" y="100" width="182" height="35"/>
+                                <rect key="frame" x="192.66666666666663" y="124" width="162.33333333333337" height="35"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="25"/>
                                 <color key="textColor" red="0.83522045609999995" green="0.83534133430000002" blue="0.8351941705" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Wq1-uC-2ah">
+                                <rect key="frame" x="105.66666666666669" y="673" width="164" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="6ov-mw-bR9"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="none"/>
+                                    <segment title="triplet"/>
+                                    <segment title="dotted"/>
+                                </segments>
+                                <connections>
+                                    <action selector="changeModifier:" destination="BYZ-38-t0r" eventType="valueChanged" id="LKf-xb-QIO"/>
+                                </connections>
+                            </segmentedControl>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="lLO-lP-2UK">
+                                <rect key="frame" x="44" y="723" width="287" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="HhU-UH-45W"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="44.1"/>
+                                    <segment title="48"/>
+                                    <segment title="88.2"/>
+                                    <segment title="96"/>
+                                    <segment title="176.4"/>
+                                    <segment title="192"/>
+                                </segments>
+                                <connections>
+                                    <action selector="changeSampleRate:" destination="BYZ-38-t0r" eventType="valueChanged" id="Vdw-J7-rfK"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" red="0.14116021990776062" green="0.14118680357933044" blue="0.14115440845489502" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="lLO-lP-2UK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2vT-Zb-t5J"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="lLO-lP-2UK" secondAttribute="trailing" id="9a5-HQ-Lgu"/>
                             <constraint firstAttribute="trailing" secondItem="qeQ-oe-2dS" secondAttribute="trailing" constant="20" id="CIY-Vl-0Y4"/>
                             <constraint firstItem="F7I-7X-ziJ" firstAttribute="height" secondItem="qeQ-oe-2dS" secondAttribute="height" id="GaE-as-EBU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="lLO-lP-2UK" secondAttribute="bottom" constant="20" id="Ja0-Ra-ugp"/>
+                            <constraint firstItem="Wq1-uC-2ah" firstAttribute="top" secondItem="2Lg-Qp-fer" secondAttribute="bottom" constant="15" id="KRH-Ws-Lad"/>
                             <constraint firstItem="F7I-7X-ziJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="L34-I1-5Bd"/>
                             <constraint firstItem="qeQ-oe-2dS" firstAttribute="centerY" secondItem="F7I-7X-ziJ" secondAttribute="centerY" id="WiH-79-B80"/>
                             <constraint firstAttribute="trailing" secondItem="2Lg-Qp-fer" secondAttribute="trailing" id="YoL-f3-bEy"/>
+                            <constraint firstItem="lLO-lP-2UK" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="cAk-qT-L3O"/>
                             <constraint firstItem="F7I-7X-ziJ" firstAttribute="width" secondItem="qeQ-oe-2dS" secondAttribute="width" id="duR-hb-Evd"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="2Lg-Qp-fer" secondAttribute="bottom" constant="20" id="fUs-M5-MR3"/>
                             <constraint firstItem="NXa-Cv-Bw0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="15" id="kXh-wy-yOt"/>
+                            <constraint firstItem="Wq1-uC-2ah" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lDl-5e-Ok4"/>
                             <constraint firstItem="2Lg-Qp-fer" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="mni-8z-dgZ"/>
                             <constraint firstItem="F7I-7X-ziJ" firstAttribute="top" secondItem="NXa-Cv-Bw0" secondAttribute="bottom" constant="15" id="oFQ-il-d6d"/>
                             <constraint firstItem="qeQ-oe-2dS" firstAttribute="leading" secondItem="F7I-7X-ziJ" secondAttribute="trailing" constant="10" id="uWq-mi-5Cv"/>
                             <constraint firstItem="2Lg-Qp-fer" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vuL-F0-I6i"/>
+                            <constraint firstItem="lLO-lP-2UK" firstAttribute="top" secondItem="Wq1-uC-2ah" secondAttribute="bottom" constant="15" id="wWZ-Fn-Omh"/>
                             <constraint firstItem="2Lg-Qp-fer" firstAttribute="top" secondItem="F7I-7X-ziJ" secondAttribute="bottom" constant="10" id="xOa-ae-rHd"/>
                             <constraint firstItem="NXa-Cv-Bw0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ydq-ZT-EOS"/>
                         </constraints>
