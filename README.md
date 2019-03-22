@@ -1,4 +1,4 @@
-# Project Title
+# Musician's Calculator
 
 Musician's Calculator is an app for studio musicians, producers, and mixers. It provides an easy interface for calculating the length of various note divisions in both milliseconds and samples for use in setting delay times, reverb predelay, or any other time-based effect to meaningful and musical values.
 
