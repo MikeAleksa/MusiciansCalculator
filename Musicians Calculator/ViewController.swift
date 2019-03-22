@@ -35,6 +35,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     // MARK: variables
     private var divisions = [Division]()
     private(set) var showMilliseconds = true
+    let names : [String] = ["1/1024", "1/512", "1/256", "1/128", "1/64", "1/16", "1/8", "1/4", "1/2", "1/1", "2/1", "4/1", "8/1", "16/1", "24/1"]
     
     // MARK: outlets
     @IBOutlet weak var durationDisplay: UITableView!
@@ -67,7 +68,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         tapGesture.numberOfTapsRequired = 2
         
         // load division array with values
-        let names : [String] = ["1/1024", "1/512", "1/256", "1/128", "1/64", "1/16", "1/8", "1/4", "1/2", "1/1", "2/1", "4/1", "8/1", "16/1", "24/1"]
         for name in names {
             divisions.append(Division(withName: name))
         }
@@ -76,11 +76,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
         divLabel.text = "Note Value"
         timeLabel.text = "Time"
         self.durationDisplay.tableFooterView = UIView()
-
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         // automatically scroll to 1/4 note
         let indexOfQuarter = Int(names.firstIndex(of: "1/4")!)
-        let indexPath = NSIndexPath(row: indexOfQuarter+1, section: 0)
-        durationDisplay.scrollToRow(at: indexPath as IndexPath, at: UITableView.ScrollPosition.middle, animated: true)
+        let indexPath = IndexPath(row: indexOfQuarter, section: 0)
+        durationDisplay.scrollToRow(at: indexPath, at: UITableView.ScrollPosition.middle, animated: false)
     }
     
     // limit BPM field input to numbers and a single decimal point
@@ -96,23 +98,30 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     // when editing finishes on the BPM field, update the BPM in the model and reload the Duration Display
     @IBAction private func editingDidEndBPM(_ sender: UITextField) {
-        // if there are multiple decimal points, remove any characters after and including the second decimal point
-        let input = sender.text ?? "0"
-        var trimmedInput : String = ""
-        var decimalCounter = 0
-        for ch in input {
-            if ch == "." {
-                    decimalCounter += 1
+        let input = sender.text ?? "Set BPM"
+        if input != "Set BPM" && input != "" {
+            // if there are multiple decimal points, remove any characters after and including the second decimal point
+            var trimmedInput : String = ""
+            var decimalCounter = 0
+            for ch in input {
+                if ch == "." {
+                        decimalCounter += 1
+                }
+                if decimalCounter <= 1 {
+                    trimmedInput += String(ch)
+                }
             }
-            if decimalCounter <= 1 {
-                trimmedInput += String(ch)
-            }
+            bpmField.text = trimmedInput + " BPM"
+            // set BPM in Division with the trimmed input then update duration display
+            let doubleBPM = Double(trimmedInput) ?? 0
+            Division.setBPM(withbpm: doubleBPM)
+            durationDisplay.reloadData()
         }
-        bpmField.text = trimmedInput + " BPM"
-        // set BPM in Division with the trimmed input then update duration display
-        let doubleBPM = Double(trimmedInput) ?? 0
-        Division.setBPM(withbpm: doubleBPM)
-        durationDisplay.reloadData()
+        else {
+            bpmField.text = "120 BPM"
+            Division.setBPM(withbpm: 120)
+            durationDisplay.reloadData()
+        }
     }
     
     // toggle between milliseconds and samples, called by tapGesture
