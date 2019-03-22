@@ -59,6 +59,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         durationDisplay.delegate = self
         durationDisplay.dataSource = self
+        durationDisplay.keyboardDismissMode = .onDrag
         
         // add done button to keyboard - call endEditing() on bpmField when pressed
         bpmField.delegate = self
@@ -98,36 +99,37 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     // clear BPM field at start of editing
     @IBAction func editingDidBeginBPM(_ sender: UITextField) {
-        bpmField.text = ""
+        DispatchQueue.main.async { [weak self] in
+            self?.bpmField.text = "" }
     }
     
     // when editing finishes on the BPM field, update the BPM in the model and reload the Duration Display
     @IBAction private func editingDidEndBPM(_ sender: UITextField) {
-        let input = sender.text ?? "Set BPM"
-        if input != "Set BPM" && input != "" {
-            // if there are multiple decimal points, remove any characters after and including the second decimal point
-            var trimmedInput : String = ""
-            var decimalCounter = 0
-            for ch in input {
-                if ch == "." {
-                    decimalCounter += 1
+        DispatchQueue.main.async { [weak self] in
+            let input = sender.text ?? "Set BPM"
+            if input != "Set BPM" && input != "" {
+                // if there are multiple decimal points, remove any characters after and including the second decimal point
+                var trimmedInput : String = ""
+                var decimalCounter = 0
+                for ch in input {
+                    if ch == "." {
+                        decimalCounter += 1
+                    }
+                    if decimalCounter <= 1 {
+                        trimmedInput += String(ch)
+                    }
                 }
-                if decimalCounter <= 1 {
-                    trimmedInput += String(ch)
-                }
+                self?.bpmField.text = trimmedInput + " BPM"
+                // set BPM in Division with the trimmed input then update duration display
+                let doubleBPM = Double(trimmedInput) ?? 0
+                Division.setBPM(withbpm: doubleBPM)
             }
-            bpmField.text = trimmedInput + " BPM"
-            // set BPM in Division with the trimmed input then update duration display
-            let doubleBPM = Double(trimmedInput) ?? 0
-            Division.setBPM(withbpm: doubleBPM)
-            DispatchQueue.main.async { [weak self] in self?.durationDisplay.reloadData() }
-
-        }
-        // if nothing was entered in the BPM field, reset to 120 BPM
-        else {
-            bpmField.text = "120 BPM"
-            Division.setBPM(withbpm: 120)
-            DispatchQueue.main.async { [weak self] in self?.durationDisplay.reloadData() }
+            // if nothing was entered in the BPM field, reset to 120 BPM
+            else {
+                self?.bpmField.text = "120 BPM"
+                Division.setBPM(withbpm: 120)
+            }
+            self?.durationDisplay.reloadData()
         }
     }
     
@@ -195,23 +197,25 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         let div = divisions[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "DivisionCell") as! Cell
         var name : String = div.getName()
-        if div.divValue >= 1.0 {
-            name.removeLast(2)
-            cell.divisionView.text = name + ((div.divValue == 1) ? " bar" : " bars")
-        }
-        else {
-            cell.divisionView.text = name + " note"
-        }
-        cell.equals.text = "="
-        if showMilliseconds {
-            cell.timeView.text = ((div.ms >= 1000)
-                        ? "\(String(format: "%.2f", div.ms/1000)) sec"
-                        : "\(String(format: "%.2f", div.ms)) ms")
-        }
-        else {
-            cell.timeView.text = ((div.samples >= 1000)
-                        ? "\(String(format: "%.2f", div.samples/1000))k"
-                        : "\(String(format: "%.2f", div.samples))")
+        DispatchQueue.main.async { [weak self] in
+            if div.divValue >= 1.0 {
+                name.removeLast(2)
+                cell.divisionView.text = name + ((div.divValue == 1) ? " bar" : " bars")
+            }
+            else {
+                cell.divisionView.text = name + " note"
+            }
+            cell.equals.text = "="
+            if (self?.showMilliseconds)! {
+                cell.timeView.text = ((div.ms >= 1000)
+                            ? "\(String(format: "%.2f", div.ms/1000)) sec"
+                            : "\(String(format: "%.2f", div.ms)) ms")
+            }
+            else {
+                cell.timeView.text = ((div.samples >= 1000)
+                            ? "\(String(format: "%.2f", div.samples/1000))k"
+                            : "\(String(format: "%.2f", div.samples))")
+            }
         }
         return cell
     }
