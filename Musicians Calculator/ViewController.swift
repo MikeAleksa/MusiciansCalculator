@@ -125,7 +125,14 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let div = divisions[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "DivisionCell") as! Cell
-        cell.divisionView.text = "\(div.getName()) note"
+        var name : String = div.getName()
+        if div.divValue >= 1.0 {
+            name.removeLast(2)
+            cell.divisionView.text = name + ((div.divValue == 1) ? " bar" : " bars")
+        }
+        else {
+            cell.divisionView.text = name + " note"
+        }
         cell.equals.text = "="
         if showMilliseconds {
             cell.timeView.text = ((div.ms >= 1000)

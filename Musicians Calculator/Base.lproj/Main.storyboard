@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter BPM" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NXa-Cv-Bw0">
-                                <rect key="frame" x="107" y="70" width="200" height="50"/>
+                                <rect key="frame" x="107" y="40" width="200" height="50"/>
                                 <color key="backgroundColor" red="0.33330115675926208" green="0.33335390686988831" blue="0.33328968286514282" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -35,7 +35,7 @@
                                 </connections>
                             </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2Lg-Qp-fer">
-                                <rect key="frame" x="30" y="145" width="354" height="571"/>
+                                <rect key="frame" x="30" y="140" width="354" height="576"/>
                                 <color key="backgroundColor" red="0.14116021989999999" green="0.14118680359999999" blue="0.14115440849999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DivisionCell" id="oTo-m3-cBO" customClass="Cell" customModule="Musicians_Calculator" customModuleProvider="target">
@@ -94,10 +94,10 @@
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="2Lg-Qp-fer" secondAttribute="trailing" constant="10" id="YoL-f3-bEy"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="2Lg-Qp-fer" secondAttribute="bottom" constant="20" id="fUs-M5-MR3"/>
-                            <constraint firstItem="NXa-Cv-Bw0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="kXh-wy-yOt"/>
+                            <constraint firstItem="NXa-Cv-Bw0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="kXh-wy-yOt"/>
                             <constraint firstItem="2Lg-Qp-fer" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="mni-8z-dgZ"/>
                             <constraint firstItem="2Lg-Qp-fer" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vuL-F0-I6i"/>
-                            <constraint firstItem="2Lg-Qp-fer" firstAttribute="top" secondItem="NXa-Cv-Bw0" secondAttribute="bottom" constant="25" id="xOa-ae-rHd"/>
+                            <constraint firstItem="2Lg-Qp-fer" firstAttribute="top" secondItem="NXa-Cv-Bw0" secondAttribute="bottom" constant="50" id="xOa-ae-rHd"/>
                             <constraint firstItem="NXa-Cv-Bw0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ydq-ZT-EOS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>

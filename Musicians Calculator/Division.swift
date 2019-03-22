@@ -17,11 +17,14 @@ class Division {
     
     // MARK: instance variables
     private var name : String
+    public var divValue : Double {
+        return self.nameToDouble()
+    }
     public var ms : Double {
-        return (Division.modifier * 60 * 1000 * 4 * self.nameToDouble() / Division.BPM)
+        return (Division.modifier * 60 * 1000 * 4 * self.divValue / Division.BPM)
     }
     public var samples : Double {
-        return (Division.modifier * 60 * Division.getSR() * 4 * self.nameToDouble() / Division.BPM)
+        return (Division.modifier * 60 * Division.getSR() * 4 * self.divValue / Division.BPM)
     }
     
     init(withName name : String) {
@@ -34,8 +37,8 @@ class Division {
     
     private func nameToDouble() -> Double {
         switch self.name {
-        case "32/1":
-            return 32
+        case "24/1":
+            return 24
         case "16/1":
             return 16
         case "8/1":
