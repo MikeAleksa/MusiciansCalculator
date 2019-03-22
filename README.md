@@ -1,10 +1,20 @@
 # Project Title
 
+Musician's Calculator is an app for studio musicians, producers, and mixers. It provides an easy interface for calculating the length of various note divisions in both milliseconds and samples for use in setting delay times, reverb predelay, or any other time-based effect to meaningful and musical values.
 
+Building this app served as a my first learning experience in Swift, iOS development, and UI design.
 
-## Usage
+## Features
 
+* enter a BPM to calculate the length of different note divisions in milliseconds/seconds or samples
+* toggle between regular note divisons, dotted note divisons, and triplet note divisions
+* switch between all commonly used sample rates to accurately match calculations to your project settings
+* double tap the table of note lengths to toggle output between milliseconds/seconds and samples
+* use on iPhone or iPad
 
+## Screenshot
+
+![Screenshot](Screenshots/iPhone_X_MC_preview.png)
 
 ## Authors
 
