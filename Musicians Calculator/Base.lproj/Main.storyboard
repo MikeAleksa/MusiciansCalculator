@@ -34,7 +34,7 @@
                                     <action selector="editingDidEndBPM:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="h32-Ms-9R1"/>
                                 </connections>
                             </textField>
-                            <tableView clipsSubviews="YES" contentMode="center" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2Lg-Qp-fer">
+                            <tableView clipsSubviews="YES" contentMode="center" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="44" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2Lg-Qp-fer">
                                 <rect key="frame" x="0.0" y="169" width="375" height="489"/>
                                 <color key="backgroundColor" red="0.14116021990776062" green="0.14118680357933044" blue="0.14115440845489502" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>

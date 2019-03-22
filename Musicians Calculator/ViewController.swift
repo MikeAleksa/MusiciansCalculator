@@ -63,8 +63,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         // add done button to keyboard - call endEditing() on bpmField when pressed
         bpmField.delegate = self
         bpmField.attributedPlaceholder = NSAttributedString(string: "Set BPM", attributes: [NSAttributedString.Key.foregroundColor : #colorLiteral(red: 0.8705115914, green: 0.870637238, blue: 0.8704842329, alpha: 1)])
+        bpmField.keyboardType = UIKeyboardType.decimalPad
         bpmField.addDoneButtonToKeyboard(myAction: #selector(bpmField.endEditing(_:)))
-        bpmField.keyboardType = .decimalPad
         bpmField.text = "120 BPM"
         
         // add tap recognizer and call handleTap() on double tap
@@ -110,7 +110,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             var decimalCounter = 0
             for ch in input {
                 if ch == "." {
-                        decimalCounter += 1
+                    decimalCounter += 1
                 }
                 if decimalCounter <= 1 {
                     trimmedInput += String(ch)
@@ -120,13 +120,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
             // set BPM in Division with the trimmed input then update duration display
             let doubleBPM = Double(trimmedInput) ?? 0
             Division.setBPM(withbpm: doubleBPM)
-            durationDisplay.reloadData()
+            DispatchQueue.main.async { [weak self] in self?.durationDisplay.reloadData() }
+
         }
         // if nothing was entered in the BPM field, reset to 120 BPM
         else {
             bpmField.text = "120 BPM"
             Division.setBPM(withbpm: 120)
-            durationDisplay.reloadData()
+            DispatchQueue.main.async { [weak self] in self?.durationDisplay.reloadData() }
         }
     }
     
@@ -140,7 +141,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             else {
                 timeLabel.text = "Samples"
             }
-            durationDisplay.reloadData()
+            DispatchQueue.main.async { [weak self] in self?.durationDisplay.reloadData() }
         }
     }
     
@@ -156,7 +157,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         default:
             Division.setUnmodified()
         }
-        durationDisplay.reloadData()
+        DispatchQueue.main.async { [weak self] in self?.durationDisplay.reloadData() }
     }
     
     // change the sample rate in Division, then update duration display
@@ -178,10 +179,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
             Division.set44100()
         }
         if showMilliseconds == false {
-            durationDisplay.reloadData()
+            DispatchQueue.main.async { [weak self] in self?.durationDisplay.reloadData() }
         }
     }
-    
 }
 
 // populate the table from information derived from divisions
