@@ -49,6 +49,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
         return .portrait
     }
     
+    // make status bar style light
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+              return .lightContent
+        }
+    
     override internal func viewDidLoad() {
         super.viewDidLoad()
         
