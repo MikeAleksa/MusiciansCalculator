@@ -64,11 +64,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
         tapGesture.numberOfTapsRequired = 2
         
         // load division array with values
-        for name in ["1/128", "1/64", "1/16", "1/8", "1/4", "1/2", "1/1", "2/1", "4/1"] {
+        for name in ["1/1024", "1/512", "1/256", "1/128", "1/64", "1/16", "1/8", "1/4", "1/2", "1/1", "2/1", "4/1", "8/1", "16/1", "24/1"] {
             let division = Division(withName: name)
             divisions.append(division)
         }
-        durationDisplay.reloadData()
     }
     
     // limit BPM field input to numbers and a single decimal point
@@ -126,16 +125,17 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let div = divisions[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "DivisionCell") as! Cell
-        cell.divisionView.text = "\(div.getName()) note  ="
+        cell.divisionView.text = "\(div.getName()) note"
+        cell.equals.text = "="
         if showMilliseconds {
             cell.timeView.text = ((div.ms >= 1000)
-                        ? "\(String(format: "%.2f", div.ms/1000)) sec\n"
-                        : "\(String(format: "%.2f", div.ms)) ms\n")
+                        ? "\(String(format: "%.2f", div.ms/1000)) sec"
+                        : "\(String(format: "%.2f", div.ms)) ms")
         }
         else {
             cell.timeView.text = ((div.samples >= 1000)
-                        ? "\(String(format: "%.2", div.samples/1000))k samples\n"
-                        : "\(String(format: "%.0f", div.samples)) samples\n")
+                        ? "\(String(format: "%.2f", div.samples/1000))k"
+                        : "\(String(format: "%.2f", div.samples))")
         }
         
         return cell

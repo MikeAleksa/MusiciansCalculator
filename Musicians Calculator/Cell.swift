@@ -12,5 +12,5 @@ class Cell: UITableViewCell {
 
     @IBOutlet weak var divisionView: UILabel!
     @IBOutlet weak var timeView: UILabel!
-
+    @IBOutlet weak var equals: UILabel!
 }

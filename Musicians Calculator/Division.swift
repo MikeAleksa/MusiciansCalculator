@@ -34,6 +34,12 @@ class Division {
     
     private func nameToDouble() -> Double {
         switch self.name {
+        case "32/1":
+            return 32
+        case "16/1":
+            return 16
+        case "8/1":
+            return 8
         case "4/1":
             return 4
         case "2/1":
@@ -54,6 +60,12 @@ class Division {
             return 1/64
         case "1/128":
             return 1/128
+        case "1/256":
+            return 1/256
+        case "1/512":
+            return 1/512
+        case "1/1024":
+            return 1/1024
         default:
             return 0
         }
