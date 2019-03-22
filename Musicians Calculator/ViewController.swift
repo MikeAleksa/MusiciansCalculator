@@ -37,10 +37,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
     private(set) var showMilliseconds = true
     
     // MARK: outlets
-    @IBOutlet weak var divisionDisplay: UITableView!
     @IBOutlet weak var durationDisplay: UITableView!
     @IBOutlet private weak var bpmField: UITextField!
     
+    // limit view to portrait mode
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait
     }
@@ -61,34 +61,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
         tapGesture.numberOfTapsRequired = 2
         
         // load division array with values
-        for name in ["1/128",
-                     "1/64",
-                     "1/32",
-                     "1/16",
-                     "1/8",
-                     "1/4",
-                     "1/2",
-                     "1/1",
-                     "2/1",
-                     "4/1"] {
+        for name in ["1/128", "1/64", "1/16", "1/8", "1/4", "1/2", "1/1", "2/1", "4/1"] {
             let division = Division(withName: name)
             divisions.append(division)
             updateDuration()
         }
     }
     
-    @objc private func handleTap(sender: UITapGestureRecognizer) {
-        if sender.state == .ended {
-            showMilliseconds = (showMilliseconds ? false : true)
-            updateDuration()
-        }
-    }
-    
-    // TODO: switch between normal, dotted, and triplet
-    
-    // TODO: change duration display to be a table instead of a text field
-    
-    // TODO: limit BPM field input to numbers and a single decimal point
+    // limit BPM field input to numbers and a single decimal point
     private func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let invalidCharacters = CharacterSet(charactersIn: "0123456789.").inverted
         return string.rangeOfCharacter(from: invalidCharacters) == nil
@@ -106,6 +86,18 @@ class ViewController: UIViewController, UITextFieldDelegate {
         Division.setBPM(withbpm: doubleBPM)
         updateDuration()
     }
+    
+    // toggle between milliseconds and samples, called by tapGesture
+    @objc private func handleTap(sender: UITapGestureRecognizer) {
+        if sender.state == .ended {
+            showMilliseconds = (showMilliseconds ? false : true)
+            updateDuration()
+        }
+    }
+    
+    // TODO: switch between normal, dotted, and triplet
+    
+    // TODO: change duration display to be a table instead of a text field
     
     // reload the Duration Display
     private func updateDuration() {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		27834EC7224471FA008AB64B /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27834EC6224471FA008AB64B /* Cell.swift */; };
 		278D93A62244321F00742F43 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 278D93A52244321E00742F43 /* Launch Screen.storyboard */; };
 		279DC5CF21C7A6F600916070 /* Division.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279E299521C4CBF0002B9C52 /* Division.swift */; };
 		279DC5D221C7A91F00916070 /* DivisionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279DC5D121C7A91F00916070 /* DivisionTests.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		27834EC6224471FA008AB64B /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 		278D93A52244321E00742F43 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		279DC5C021C7A29A00916070 /* Musicians CalculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Musicians CalculatorTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		279DC5C421C7A29A00916070 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				279E297E21C48981002B9C52 /* ViewController.swift */,
 				279E299521C4CBF0002B9C52 /* Division.swift */,
 				279E298021C48981002B9C52 /* Main.storyboard */,
+				27834EC6224471FA008AB64B /* Cell.swift */,
 				279E298821C48983002B9C52 /* Info.plist */,
 			);
 			path = "Musicians Calculator";
@@ -224,6 +227,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				279E297F21C48981002B9C52 /* ViewController.swift in Sources */,
+				27834EC7224471FA008AB64B /* Cell.swift in Sources */,
 				279E299621C4CBF0002B9C52 /* Division.swift in Sources */,
 				279E297D21C48981002B9C52 /* AppDelegate.swift in Sources */,
 			);
