@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina6_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,13 +15,17 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Musicians_Calculator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter BPM" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NXa-Cv-Bw0">
-                                <rect key="frame" x="98" y="46" width="179" height="36"/>
+                            <textField opaque="NO" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter BPM" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NXa-Cv-Bw0">
+                                <rect key="frame" x="107" y="94" width="200" height="50"/>
                                 <color key="backgroundColor" red="0.33330115675926208" green="0.33335390686988831" blue="0.33328968286514282" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="MM1-VE-9yB"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="m9K-L5-XV1"/>
+                                </constraints>
                                 <color key="textColor" red="0.88619661329999999" green="0.88632434609999999" blue="0.88616871829999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad" keyboardAppearance="alert"/>
@@ -29,23 +33,29 @@
                                     <action selector="editingDidEndBPM:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="h32-Ms-9R1"/>
                                 </connections>
                             </textField>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Kqv-uf-rKn">
-                                <rect key="frame" x="16" y="90" width="157" height="469"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Kqv-uf-rKn">
+                                <rect key="frame" x="30" y="244" width="172" height="408"/>
                                 <color key="backgroundColor" red="0.14116021989999999" green="0.14118680359999999" blue="0.14115440849999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2Lg-Qp-fer">
-                                <rect key="frame" x="181" y="90" width="178" height="469"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2Lg-Qp-fer">
+                                <rect key="frame" x="212" y="244" width="172" height="408"/>
                                 <color key="backgroundColor" red="0.14116021989999999" green="0.14118680359999999" blue="0.14115440849999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.14116021990776062" green="0.14118680357933044" blue="0.14115440845489502" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="NXa-Cv-Bw0" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="EOs-nC-vP6"/>
-                            <constraint firstItem="NXa-Cv-Bw0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="26" id="QYz-LH-EWb"/>
-                            <constraint firstItem="NXa-Cv-Bw0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="98" id="n1B-cF-te0"/>
+                            <constraint firstItem="Kqv-uf-rKn" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="8ja-gB-p3R"/>
+                            <constraint firstItem="Kqv-uf-rKn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="A6M-FY-AQs"/>
+                            <constraint firstItem="2Lg-Qp-fer" firstAttribute="width" secondItem="Kqv-uf-rKn" secondAttribute="width" id="AEJ-pc-M4p"/>
+                            <constraint firstItem="Kqv-uf-rKn" firstAttribute="top" secondItem="2Lg-Qp-fer" secondAttribute="top" id="IQy-4t-z56"/>
+                            <constraint firstItem="2Lg-Qp-fer" firstAttribute="leading" secondItem="Kqv-uf-rKn" secondAttribute="trailing" constant="10" id="Lbs-uN-v4T"/>
+                            <constraint firstItem="Kqv-uf-rKn" firstAttribute="height" secondItem="2Lg-Qp-fer" secondAttribute="height" id="QE6-mb-NFE"/>
+                            <constraint firstItem="Kqv-uf-rKn" firstAttribute="top" secondItem="NXa-Cv-Bw0" secondAttribute="bottom" constant="100" id="TR3-fc-IN1"/>
+                            <constraint firstItem="2Lg-Qp-fer" firstAttribute="leading" secondItem="Kqv-uf-rKn" secondAttribute="trailing" constant="10" id="YqD-ai-BLe"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="2Lg-Qp-fer" secondAttribute="trailing" constant="10" id="dg2-Qu-Fu6"/>
+                            <constraint firstItem="NXa-Cv-Bw0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="kXh-wy-yOt"/>
+                            <constraint firstItem="NXa-Cv-Bw0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wxX-Fp-srV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -57,7 +67,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="23.199999999999999" y="27.436281859070466"/>
+            <point key="canvasLocation" x="22.265625" y="26.793557833089309"/>
         </scene>
     </scenes>
 </document>

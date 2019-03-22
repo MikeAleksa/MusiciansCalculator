@@ -100,7 +100,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let input = sender.text ?? "0"
         var set = Set<Character>()
         let trimmed = input.filter{ set.insert($0).inserted }
-        bpmField.text = trimmed
+        bpmField.text = trimmed + " BPM"
         // set BPM with the trimmed input and update duration
         let doubleBPM = Double(trimmed) ?? 0
         Division.setBPM(withbpm: doubleBPM)
