@@ -10,5 +10,7 @@ import UIKit
 
 class Cell: UITableViewCell {
 
+    @IBOutlet weak var divisionView: UILabel!
+    @IBOutlet weak var timeView: UILabel!
 
 }

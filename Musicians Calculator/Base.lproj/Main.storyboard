@@ -37,7 +37,7 @@
                                 <rect key="frame" x="30" y="145" width="354" height="571"/>
                                 <color key="backgroundColor" red="0.14116021989999999" green="0.14118680359999999" blue="0.14115440849999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DivisionCell" id="oTo-m3-cBO">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DivisionCell" id="oTo-m3-cBO" customClass="Cell" customModule="Musicians_Calculator" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="354" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oTo-m3-cBO" id="4sk-tO-oAV">
@@ -67,6 +67,10 @@
                                                 <constraint firstItem="Ypw-bv-NHN" firstAttribute="centerY" secondItem="4sk-tO-oAV" secondAttribute="centerY" id="ykm-Ni-FfT"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="divisionView" destination="Ypw-bv-NHN" id="gat-zr-sVV"/>
+                                            <outlet property="timeView" destination="DXP-hP-sbb" id="OjD-d9-5Ua"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

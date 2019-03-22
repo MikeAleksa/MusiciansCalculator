@@ -96,9 +96,9 @@
 			children = (
 				279E298E21C489C7002B9C52 /* Supporting Files */,
 				279E297E21C48981002B9C52 /* ViewController.swift */,
+				27834EC6224471FA008AB64B /* Cell.swift */,
 				279E299521C4CBF0002B9C52 /* Division.swift */,
 				279E298021C48981002B9C52 /* Main.storyboard */,
-				27834EC6224471FA008AB64B /* Cell.swift */,
 				279E298821C48983002B9C52 /* Info.plist */,
 			);
 			path = "Musicians Calculator";

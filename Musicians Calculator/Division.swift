@@ -28,11 +28,6 @@ class Division {
         self.name = name
     }
     
-    // TODO: add functionality to make 1/8, 1/4, or 1/2 note be the beat
-    
-    // TODO: make note values in a dictionary?
-    
-    
     /* * * * * * * * * * * * * * * *
      *      // MARK: PRIVATE       *
      * * * * * * * * * * * * * * * */

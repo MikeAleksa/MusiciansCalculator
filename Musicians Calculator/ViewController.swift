@@ -48,6 +48,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
     override internal func viewDidLoad() {
         super.viewDidLoad()
         
+        durationDisplay.delegate = self
+        durationDisplay.dataSource = self
+        
         // add done button to keyboard - call endEditing() on bpmField when pressed
         bpmField.delegate = self
         bpmField.attributedPlaceholder = NSAttributedString(string: "Set BPM", attributes: [NSAttributedString.Key.foregroundColor : #colorLiteral(red: 0.8705115914, green: 0.870637238, blue: 0.8704842329, alpha: 1)])
@@ -64,7 +67,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         for name in ["1/128", "1/64", "1/16", "1/8", "1/4", "1/2", "1/1", "2/1", "4/1"] {
             let division = Division(withName: name)
             divisions.append(division)
-            updateDuration()
         }
     }
     
@@ -76,45 +78,50 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     // when editing finishes on the BPM field, update the BPM in the model and reload the Duration Display
     @IBAction private func editingDidEndBPM(_ sender: UITextField) {
-        // remove any decimal points after first decimal point and update the BPM field
+        // remove any decimal points after first decimal point and update the text in BPM field
         let input = sender.text ?? "0"
         var set = Set<Character>()
         let trimmed = input.filter{ set.insert($0).inserted }
         bpmField.text = trimmed + " BPM"
-        // set BPM with the trimmed input and update duration
+        // set BPM in Division with the trimmed input then update duration display
         let doubleBPM = Double(trimmed) ?? 0
         Division.setBPM(withbpm: doubleBPM)
-        updateDuration()
     }
     
     // toggle between milliseconds and samples, called by tapGesture
     @objc private func handleTap(sender: UITapGestureRecognizer) {
         if sender.state == .ended {
             showMilliseconds = (showMilliseconds ? false : true)
-            updateDuration()
         }
     }
     
-    // TODO: switch between normal, dotted, and triplet
+    // TODO: switch between normal, dotted, and triplet in Division, then update duration display
     
-    // TODO: change duration display to be a table instead of a text field
+    // TODO: change the sample rate in Division, then update duration display
     
-    // reload the Duration Display
-    private func updateDuration() {
-        var newLabel : String = ""
-        for division in divisions {
-            let name = division.getName()
-                if (showMilliseconds) {
-                    newLabel += "\(name) note:\t\t" + ((division.ms >= 1000)
-                        ? "\(String(format: "%.2f", division.ms/1000)) sec\n"
-                        : "\(String(format: "%.2f", division.ms)) ms\n")
-                }
-                else {
-                    newLabel += "\(name) note:\t\t" + ((division.samples >= 1000)
-                        ? "\(String(format: "%.2", division.samples/1000))k samples\n"
-                        : "\(String(format: "%.0f", division.samples)) samples\n")
-                }
+}
+
+extension ViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return divisions.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let div = divisions[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DivisionCell") as! Cell
+        cell.divisionView.text = "\(div.getName()) note:"
+        if showMilliseconds {
+            cell.timeView.text = ((div.ms >= 1000)
+                        ? "\(String(format: "%.2f", div.ms/1000)) sec\n"
+                        : "\(String(format: "%.2f", div.ms)) ms\n")
         }
-//        durationDisplay.text = newLabel
+        else {
+            cell.timeView.text = ((div.samples >= 1000)
+                        ? "\(String(format: "%.2", div.samples/1000))k samples\n"
+                        : "\(String(format: "%.0f", div.samples)) samples\n")
+        }
+        
+        return cell
     }
 }
