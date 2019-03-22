@@ -64,10 +64,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
         tapGesture.numberOfTapsRequired = 2
         
         // load division array with values
-        for name in ["1/1024", "1/512", "1/256", "1/128", "1/64", "1/16", "1/8", "1/4", "1/2", "1/1", "2/1", "4/1", "8/1", "16/1", "24/1"] {
+        let names : [String] = ["1/1024", "1/512", "1/256", "1/128", "1/64", "1/16", "1/8", "1/4", "1/2", "1/1", "2/1", "4/1", "8/1", "16/1", "24/1"]
+        for name in names {
             let division = Division(withName: name)
             divisions.append(division)
         }
+        
+        // automatically scroll to center 1/4 note
+        let indexOfQuarter = Int(names.firstIndex(of: "1/4")!)
+        let indexPath = NSIndexPath(row: indexOfQuarter, section: 0)
+        durationDisplay.scrollToRow(at: indexPath as IndexPath, at: UITableView.ScrollPosition.middle, animated: true)
     }
     
     // limit BPM field input to numbers and a single decimal point
@@ -144,7 +150,6 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
                         ? "\(String(format: "%.2f", div.samples/1000))k"
                         : "\(String(format: "%.2f", div.samples))")
         }
-        
         return cell
     }
 }
