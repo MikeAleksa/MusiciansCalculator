@@ -117,6 +117,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             Division.setBPM(withbpm: doubleBPM)
             durationDisplay.reloadData()
         }
+        // if nothing was entered in the BPM field, reset to 120 BPM
         else {
             bpmField.text = "120 BPM"
             Division.setBPM(withbpm: 120)
