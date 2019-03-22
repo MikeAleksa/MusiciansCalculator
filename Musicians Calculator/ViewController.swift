@@ -68,7 +68,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         // add tap recognizer and call handleTap() on double tap
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:)))
-        view.addGestureRecognizer(tapGesture)
+        durationDisplay.addGestureRecognizer(tapGesture)
         tapGesture.numberOfTapsRequired = 2
         
         // load division array with values
