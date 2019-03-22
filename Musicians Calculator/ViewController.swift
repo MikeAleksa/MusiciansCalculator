@@ -72,10 +72,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
             divisions.append(division)
         }
         
-        // set initial label values
+        // set initial label values and make footer to remove extra rows in table
         divLabel.text = "Note Value"
         timeLabel.text = "Time"
-        
+        self.durationDisplay.tableFooterView = UIView()
+
         // automatically scroll to center 1/4 note
         let indexOfQuarter = Int(names.firstIndex(of: "1/4")!)
         let indexPath = NSIndexPath(row: indexOfQuarter+1, section: 0)
