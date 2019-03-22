@@ -172,7 +172,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
         default:
             Division.set44100()
         }
-        durationDisplay.reloadData()
+        if showMilliseconds == false {
+            durationDisplay.reloadData()
+        }
     }
     
 }
