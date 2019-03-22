@@ -14,7 +14,7 @@ Building this app served as a my first learning experience in Swift, iOS develop
 
 ## Screenshot
 
-![Screenshot](Screenshots/iPhone_X_MC_preview.png)
+![Screenshot](Screenshots/iPhone_X_screenshot.png)
 
 ## Authors
 
