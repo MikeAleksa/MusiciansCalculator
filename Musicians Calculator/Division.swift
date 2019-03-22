@@ -24,7 +24,7 @@ class Division {
         return (Division.modifier * 60 * 1000 * 4 * self.divValue / Division.BPM)
     }
     public var samples : Double {
-        return (Division.modifier * 60 * Division.getSR() * 4 * self.divValue / Division.BPM)
+        return (Division.modifier * 60 * Division.sampleRate * 4 * self.divValue / Division.BPM)
     }
     
     init(withName name : String) {
@@ -115,11 +115,11 @@ class Division {
     }
     
     static public func set176400() {
-        sampleRate = 88200
+        sampleRate = 176400
     }
     
     static public func set192000() {
-        sampleRate = 96000
+        sampleRate = 192000
     }
     
     static public func getSR() -> Double {
@@ -128,9 +128,5 @@ class Division {
     
     static public func setBPM(withbpm newbpm : Double) {
         BPM = newbpm
-    }
-    
-    static public func getBPM() -> Double {
-        return BPM
     }
 }
