@@ -43,7 +43,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var divLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     
-    
     // limit view to portrait mode
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait
@@ -59,7 +58,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         durationDisplay.delegate = self
         durationDisplay.dataSource = self
-        durationDisplay.keyboardDismissMode = .onDrag
         
         // add done button to keyboard - call endEditing() on bpmField when pressed
         bpmField.delegate = self
