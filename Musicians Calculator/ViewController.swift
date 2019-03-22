@@ -39,6 +39,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     // MARK: outlets
     @IBOutlet weak var durationDisplay: UITableView!
     @IBOutlet private weak var bpmField: UITextField!
+    @IBOutlet weak var divLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
     
     // limit view to portrait mode
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
@@ -70,9 +72,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
             divisions.append(division)
         }
         
+        // set initial label values
+        divLabel.text = "Note Value"
+        timeLabel.text = "Time"
+        
         // automatically scroll to center 1/4 note
         let indexOfQuarter = Int(names.firstIndex(of: "1/4")!)
-        let indexPath = NSIndexPath(row: indexOfQuarter, section: 0)
+        let indexPath = NSIndexPath(row: indexOfQuarter+1, section: 0)
         durationDisplay.scrollToRow(at: indexPath as IndexPath, at: UITableView.ScrollPosition.middle, animated: true)
     }
     
@@ -112,6 +118,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @objc private func handleTap(sender: UITapGestureRecognizer) {
         if sender.state == .ended {
             showMilliseconds = (showMilliseconds ? false : true)
+            if showMilliseconds {
+                timeLabel.text = "Time"
+            }
+            else {
+                timeLabel.text = "Samples"
+            }
             durationDisplay.reloadData()
         }
     }
