@@ -26,6 +26,9 @@ class Division {
     public var samples : Double {
         return (Division.modifier * 60 * Division.sampleRate * 4 * self.divValue / Division.BPM)
     }
+    public var hz : Double {
+        return (Division.BPM / (4 * self.divValue * 60 * Division.modifier))
+    }
     
     init(withName name : String) {
         self.name = name

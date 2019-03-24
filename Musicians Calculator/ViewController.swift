@@ -34,8 +34,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: variables
     private var divisions = [Division]()
-    private(set) var showMilliseconds = true
-    let names : [String] = ["1/1024", "1/512", "1/256", "1/128", "1/64", "1/16", "1/8", "1/4", "1/2", "1/1", "2/1", "4/1", "8/1", "16/1", "24/1"]
+    private enum displayUnits : Int {
+        case ms
+        case hz
+        case samples
+    }
+    private var currentUnits = displayUnits.ms
+    let names : [String] = ["1/1024", "1/512", "1/256", "1/128", "1/64", "1/32", "1/16", "1/8", "1/4", "1/2", "1/1", "2/1", "4/1", "8/1", "16/1", "24/1"]
     
     // MARK: outlets
     @IBOutlet weak var durationDisplay: UITableView!
@@ -131,14 +136,18 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    // toggle between milliseconds and samples, called by tapGesture
+    // toggle between milliseconds, Hz, and samples, called by tapGesture
     @objc private func handleTap(sender: UITapGestureRecognizer) {
         if sender.state == .ended {
-            showMilliseconds = (showMilliseconds ? false : true)
-            if showMilliseconds {
-                timeLabel.text = "Time"
+            if let newUnits = displayUnits(rawValue: (currentUnits.rawValue + 1) % 3) {
+                    currentUnits = newUnits
             }
-            else {
+            switch currentUnits {
+            case displayUnits.ms:
+                timeLabel.text = "Time"
+            case displayUnits.hz:
+                timeLabel.text = "Rate"
+            case displayUnits.samples:
                 timeLabel.text = "Samples"
             }
             DispatchQueue.main.async { [weak self] in self?.durationDisplay.reloadData() }
@@ -178,7 +187,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         default:
             Division.set44100()
         }
-        if showMilliseconds == false {
+        if currentUnits == displayUnits.samples {
             DispatchQueue.main.async { [weak self] in self?.durationDisplay.reloadData() }
         }
     }
@@ -204,15 +213,20 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
                 cell.divisionView.text = name + " note"
             }
             cell.equals.text = "="
-            if (self?.showMilliseconds)! {
+            if (self?.currentUnits == displayUnits.ms) {
                 cell.timeView.text = ((div.ms >= 1000)
                             ? "\(String(format: "%.2f", div.ms/1000)) sec"
                             : "\(String(format: "%.2f", div.ms)) ms")
             }
-            else {
+            else if (self?.currentUnits == displayUnits.samples) {
                 cell.timeView.text = ((div.samples >= 1000)
                             ? "\(String(format: "%.2f", div.samples/1000))k"
                             : "\(String(format: "%.2f", div.samples))")
+            }
+            else if (self?.currentUnits == displayUnits.hz) {
+                cell.timeView.text = ((div.hz >= 1000)
+                            ? "\(String(format: "%.2f", div.hz/1000)) kHz"
+                            : "\(String(format: "%.2f", div.hz)) Hz")
             }
         }
         return cell
