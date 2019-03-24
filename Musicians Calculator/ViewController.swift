@@ -58,6 +58,15 @@ class ViewController: UIViewController, UITextFieldDelegate {
               return .lightContent
         }
     
+    // display instructions when info button is pressed
+    @IBAction func onInfoTapped(_ sender: Any) {
+        let instructionText : String = "Double tap to toggle output between milliseconds, hertz, and samples"
+        let instructions = UIAlertController(title: "Instructions", message: instructionText, preferredStyle: .alert)
+        let closeInstructions = UIAlertAction(title: "Close", style: .default, handler: nil)
+        instructions.addAction(closeInstructions)
+        present(instructions, animated: true, completion: nil)
+    }
+    
     override internal func viewDidLoad() {
         super.viewDidLoad()
         
