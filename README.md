@@ -9,7 +9,7 @@ Building this app served as a my first learning experience in Swift, iOS develop
 ## Features
 
 * enter a BPM to calculate the length of different note divisions in milliseconds, hertz, or samples
-* toggle between regular note divisons, dotted note divisons, and triplet note divisions
+* toggle between regular note divisions, dotted note divisions, and triplet note divisions
 * switch between all commonly used sample rates to accurately match calculations to your project settings
 * double tap the table of note lengths to toggle output between milliseconds, hertz, and samples
 * use on iPhone or iPad
